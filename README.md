@@ -135,11 +135,12 @@ These are intentionally deferred:
 
 ## Quick Start
 
-1. Copy the templates under `templates/global/`.
-2. Add the `AGENTS.md` snippet to your global or project entrypoint.
-3. Use `capture-memory` during active work.
-4. Run `dream-consolidate` on a nightly automation.
-5. Review the generated report before trusting promoted rules.
+1. Copy `skills/capture-memory/` and `skills/dream-consolidate/` into `$CODEX_HOME/skills/` or `~/.codex/skills/` so Codex can discover them.
+2. Copy the templates under `templates/global/` into your global Codex home as a starting point.
+3. Add the `AGENTS.md` snippet to your global or project entrypoint.
+4. Use `capture-memory` during active work.
+5. Run `dream-consolidate` on a nightly automation.
+6. Review the generated report before trusting promoted rules.
 
 ## Relationship To The Earlier Skill
 
@@ -276,8 +277,9 @@ This repository is the second-generation design:
 
 ## 快速上手
 
-1. 复制 `templates/global/` 下的模板
-2. 把 `AGENTS.md` 片段接进你的入口规则
-3. 白天用 `capture-memory`
-4. 夜间用 `dream-consolidate`
-5. 先 review nightly report，再信任升级结果
+1. 把 `skills/capture-memory/` 和 `skills/dream-consolidate/` 复制到 `$CODEX_HOME/skills/` 或 `~/.codex/skills/`，让 Codex 能发现它们
+2. 把 `templates/global/` 下的模板复制到全局 Codex home 作为初始结构
+3. 把 `AGENTS.md` 片段接进你的入口规则
+4. 白天用 `capture-memory`
+5. 夜间用 `dream-consolidate`
+6. 先 review nightly report，再信任升级结果

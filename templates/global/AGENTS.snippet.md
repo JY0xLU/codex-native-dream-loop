@@ -4,7 +4,8 @@ Use the global memory directory at `~/.codex/memory/`.
 
 Before starting any task:
 1. Read `~/.codex/memory/ACTIVE.md`
-2. Apply it as current working guidance before analyzing the request
+2. Read `~/.codex/memory/LEARNINGS.md`
+3. Apply both as current working guidance before analyzing the request
 
 During active work:
 1. Capture high-signal observations into `~/.codex/memory/inbox/`

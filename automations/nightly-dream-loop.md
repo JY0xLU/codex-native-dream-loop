@@ -12,10 +12,10 @@
 This is the nightly Dream Loop consolidation pass for a Codex-native memory system.
 
 Read:
-- .codex/memory/inbox/
-- .codex/memory/ACTIVE.md
-- .codex/memory/LEARNINGS.md
-- .codex/memory/FEATURE_REQUESTS.md
+- ~/.codex/memory/inbox/
+- ~/.codex/memory/ACTIVE.md
+- ~/.codex/memory/LEARNINGS.md
+- ~/.codex/memory/FEATURE_REQUESTS.md
 
 Goals:
 1. deduplicate recent inbox items
