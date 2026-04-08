@@ -2,7 +2,7 @@
 
 [中文](README.zh-CN.md) | English
 
-`codex-improving` is a Codex-native Dream Loop MVP.
+`codex-improving` is a Codex-native Dream Loop system.
 
 Its core idea is simple:
 
@@ -35,7 +35,7 @@ This repo takes the opposite approach:
 - never auto-edit `AGENTS.md`
 - prefer subagent cross-review for promotion, rejection, and audit decisions
 
-## MVP v1
+## What This Repository Includes
 
 This repository ships a minimal Dream Loop:
 

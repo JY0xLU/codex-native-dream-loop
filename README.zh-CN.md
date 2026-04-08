@@ -2,7 +2,7 @@
 
 中文 | [English](README.md)
 
-`codex-improving` 是一个面向 Codex 的 Dream Loop 最小可用版本。
+`codex-improving` 是一个面向 Codex 的 Dream Loop 系统。
 
 它的核心原则只有一句：
 
@@ -40,7 +40,7 @@
 - 永不自动改 `AGENTS.md`
 - 重要的升级、拒绝、审计判断优先走 subagent 交叉复核
 
-## MVP v1 包含什么
+## 仓库包含什么
 
 - `skills/capture-memory/`
   - 白天采集 skill
