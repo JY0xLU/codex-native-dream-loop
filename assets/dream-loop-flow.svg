@@ -1,32 +1,44 @@
-<svg width="1200" height="220" viewBox="0 0 1200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1120" height="264" viewBox="0 0 1120 264" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="line" x1="96" y1="0" x2="1104" y2="0" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#101A2C"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="link" x1="112" y1="132" x2="1008" y2="132" gradientUnits="userSpaceOnUse">
       <stop stop-color="#5EEAD4"/>
       <stop offset="1" stop-color="#60A5FA"/>
     </linearGradient>
   </defs>
 
-  <rect width="1200" height="220" rx="24" fill="#0F172A"/>
-  <line x1="170" y1="110" x2="1030" y2="110" stroke="url(#line)" stroke-width="6" stroke-linecap="round"/>
+  <rect width="1120" height="264" rx="24" fill="url(#bg)"/>
+  <line x1="176" y1="112" x2="944" y2="112" stroke="url(#link)" stroke-width="6" stroke-linecap="round"/>
 
   <g>
-    <circle cx="170" cy="110" r="38" fill="#111827" stroke="#5EEAD4" stroke-width="4"/>
-    <text x="126" y="170" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Capture</text>
+    <rect x="78" y="72" width="132" height="116" rx="22" fill="#13233A" stroke="#4DE3D3" stroke-width="2.5"/>
+    <circle cx="144" cy="106" r="17" stroke="#5EEAD4" stroke-width="4"/>
+    <rect x="116" y="132" width="56" height="12" rx="6" fill="#5EEAD4"/>
+    <text x="111" y="171" fill="#E6FFFA" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Capture</text>
   </g>
   <g>
-    <circle cx="385" cy="110" r="38" fill="#111827" stroke="#60A5FA" stroke-width="4"/>
-    <text x="356" y="170" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Inbox</text>
+    <rect x="274" y="72" width="132" height="116" rx="22" fill="#13233A" stroke="#60A5FA" stroke-width="2.5"/>
+    <rect x="318" y="94" width="44" height="34" rx="8" stroke="#60A5FA" stroke-width="4"/>
+    <rect x="308" y="138" width="64" height="10" rx="5" fill="#60A5FA"/>
+    <text x="319" y="171" fill="#DBEAFE" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Inbox</text>
   </g>
   <g>
-    <circle cx="600" cy="110" r="38" fill="#111827" stroke="#818CF8" stroke-width="4"/>
-    <text x="530" y="170" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Night Review</text>
+    <rect x="470" y="72" width="180" height="116" rx="22" fill="#13233A" stroke="#818CF8" stroke-width="2.5"/>
+    <circle cx="560" cy="111" r="18" stroke="#818CF8" stroke-width="4"/>
+    <path d="M560 95V111L571 118" stroke="#818CF8" stroke-width="4" stroke-linecap="round"/>
+    <text x="500" y="171" fill="#E0E7FF" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Night Review</text>
   </g>
   <g>
-    <circle cx="815" cy="110" r="38" fill="#111827" stroke="#34D399" stroke-width="4"/>
-    <text x="781" y="170" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Promote</text>
+    <rect x="714" y="72" width="148" height="116" rx="22" fill="#13233A" stroke="#34D399" stroke-width="2.5"/>
+    <path d="M760 118L782 140L818 100" stroke="#34D399" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="748" y="171" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Promote</text>
   </g>
   <g>
-    <circle cx="1030" cy="110" r="38" fill="#111827" stroke="#F59E0B" stroke-width="4"/>
-    <text x="1003" y="170" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Audit</text>
+    <rect x="926" y="72" width="116" height="116" rx="22" fill="#13233A" stroke="#F59E0B" stroke-width="2.5"/>
+    <path d="M970 98H998V126C998 140 986 152 972 152C958 152 946 140 946 126V98H970Z" stroke="#F59E0B" stroke-width="4"/>
+    <text x="956" y="171" fill="#FDE68A" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Audit</text>
   </g>
 </svg>
