@@ -1,0 +1,99 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="80" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#162235"/>
+      <stop offset="1" stop-color="#0E1726"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#5EEAD4"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="32" fill="url(#bg)"/>
+  <circle cx="184" cy="122" r="112" fill="#0B1220" opacity="0.45"/>
+  <circle cx="1118" cy="506" r="134" fill="#0A1222" opacity="0.5"/>
+
+  <text x="84" y="112" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="700">
+    Codex Improving
+  </text>
+  <text x="84" y="160" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600">
+    Native memory workflow with subagent review
+  </text>
+  <text x="84" y="215" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="24">
+    Structured capture, nightly consolidation, auditable promotion.
+  </text>
+
+  <rect x="82" y="274" width="196" height="42" rx="21" fill="#132034" stroke="#1E3A5F"/>
+  <text x="106" y="301" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600">
+    Capture during work
+  </text>
+
+  <rect x="294" y="274" width="210" height="42" rx="21" fill="#132034" stroke="#1E3A5F"/>
+  <text x="319" y="301" fill="#BFDBFE" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600">
+    Consolidate off-hours
+  </text>
+
+  <rect x="520" y="274" width="216" height="42" rx="21" fill="#132034" stroke="#1E3A5F"/>
+  <text x="548" y="301" fill="#E0E7FF" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600">
+    Review with subagents
+  </text>
+
+  <line x1="842" y1="320" x2="1008" y2="204" stroke="url(#accent)" stroke-width="3" opacity="0.8"/>
+  <line x1="842" y1="320" x2="1098" y2="320" stroke="url(#accent)" stroke-width="3" opacity="0.8"/>
+  <line x1="842" y1="320" x2="1008" y2="436" stroke="url(#accent)" stroke-width="3" opacity="0.8"/>
+  <line x1="842" y1="320" x2="876" y2="510" stroke="url(#accent)" stroke-width="3" opacity="0.55"/>
+
+  <rect x="742" y="242" width="200" height="156" rx="28" fill="url(#card)" stroke="#2DD4BF" stroke-width="2"/>
+  <circle cx="842" cy="292" r="18" fill="#0F172A" stroke="#5EEAD4" stroke-width="2"/>
+  <rect x="786" y="332" width="112" height="14" rx="7" fill="#5EEAD4" opacity="0.85"/>
+  <rect x="778" y="356" width="128" height="12" rx="6" fill="#94A3B8" opacity="0.45"/>
+  <text x="787" y="221" fill="#CCFBF1" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
+    Main Agent
+  </text>
+
+  <rect x="958" y="132" width="220" height="112" rx="24" fill="url(#card)" stroke="#60A5FA" stroke-width="2"/>
+  <text x="990" y="176" fill="#DBEAFE" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
+    Subagent Review
+  </text>
+  <text x="990" y="208" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18">
+    promotion / rejection
+  </text>
+
+  <rect x="1024" y="264" width="196" height="112" rx="24" fill="url(#card)" stroke="#818CF8" stroke-width="2"/>
+  <text x="1060" y="308" fill="#E0E7FF" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
+    Automation
+  </text>
+  <text x="1060" y="340" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18">
+    nightly Dream Loop
+  </text>
+
+  <rect x="948" y="390" width="232" height="112" rx="24" fill="url(#card)" stroke="#34D399" stroke-width="2"/>
+  <text x="988" y="434" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
+    Memory Store
+  </text>
+  <text x="988" y="466" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18">
+    inbox / ACTIVE / LEARNINGS
+  </text>
+
+  <rect x="774" y="490" width="164" height="86" rx="20" fill="url(#card)" stroke="#F59E0B" stroke-width="2"/>
+  <text x="806" y="527" fill="#FDE68A" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">
+    Audit Trail
+  </text>
+  <text x="806" y="553" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="16">
+    traceable decisions
+  </text>
+
+  <circle cx="842" cy="320" r="8" fill="#5EEAD4" filter="url(#glow)"/>
+</svg>
