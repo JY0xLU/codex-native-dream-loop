@@ -16,7 +16,7 @@ Codex Native Dream Loop is for people who want Codex to get stronger through rep
 
 **Quick Navigation**
 
-[Why It Exists](#why-it-exists) | [Public Model](#public-model) | [How The Loop Works](#how-the-loop-works) | [Core Skills](#core-skills) | [Internal Mechanics](#internal-mechanics) | [Quick Start](#quick-start)
+[Why It Exists](#why-it-exists) | [Public Model](#public-model) | [How The Loop Works](#how-the-loop-works) | [Core Skills](#core-skills) | [Automation](#automation) | [Internal Mechanics](#internal-mechanics) | [Quick Start](#quick-start)
 
 > Most agents do not really improve. They either keep re-solving the same problem, or they bury themselves under too much memory structure.
 > Codex Native Dream Loop keeps the public model small, reuses good routes, and hides the bookkeeping behind the scenes.
@@ -106,6 +106,19 @@ Together, they support a single idea:
 
 **reuse the best known route first, and only search wider when needed.**
 
+## Automation
+
+This repo assumes a single recurring automation, not a growing stack of separate scheduled agents.
+
+That automation should do four things in one pass:
+
+- maintain Dream Loop memory under the dual-layer public model
+- audit the current repo and PR round
+- check whether the automation prompt itself has drifted behind the repo
+- recommend the next smallest useful round of improvement
+
+It should be strong enough to stay aligned with the repo as the system evolves, but bounded enough that it only audits and recommends at the repo layer instead of silently editing tracked files.
+
 ## Internal Mechanics
 
 The system still keeps some internal machinery, but it should not become the main user-facing mental model.
@@ -129,7 +142,7 @@ These exist to support rollback and review. They are not meant to become extra p
 - `skills/`
   - the three skills that run the loop
 - `automations/`
-  - recommended nightly maintenance prompts
+  - the single recurring automation prompt for memory maintenance, repo round audit, drift check, and next-round recommendations
 - `references/`
   - concise design notes for route memory, promotion, and automation behavior
 - `examples/`
@@ -153,7 +166,7 @@ If you want to install it manually:
 4. During work, rely on `ACTIVE.md` first and `LEARNINGS.md` second.
 5. Use `capability-evolution` when you need to search for a better route.
 6. Use `capture-memory` only for high-signal results.
-7. Run `dream-consolidate` off-hours to refresh the hot layer and maintain route memory.
+7. Run the single recurring Dream Loop automation off-hours to refresh the hot layer, audit the current repo/PR state, check prompt drift, and recommend the next round.
 
 ## What “Good” Looks Like
 

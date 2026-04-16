@@ -38,9 +38,10 @@ Memory policy:
 2. If a rule seems like policy, propose it for human review; do not auto-write it
 
 Off-hours and maintenance:
-1. Use `dream-consolidate` for hot-layer refresh, route promotion, archive decisions, and audit reporting
-2. Prefer subagent review for promotion, rejection, archive, and conflict decisions
-3. Keep low-risk cleanup on a single-agent fast path when no judgment call is needed
+1. Use a single recurring automation that maintains Dream Loop memory, audits the current repo or PR round, checks automation drift, and recommends the next round
+2. Use `dream-consolidate` within that automation, or during manual maintenance, for hot-layer refresh, route promotion, archive decisions, and audit support
+3. Prefer subagent review for promotion, rejection, archive, and conflict decisions
+4. Keep low-risk cleanup on a single-agent fast path when no judgment call is needed
 
 Promotion rules:
 1. Promote temporary but high-impact hot routes or hot rules into `~/.codex/memory/ACTIVE.md`
@@ -55,3 +56,4 @@ Behavior expectations:
 - Prefer official plugin-based workflows when they cover the task well
 - Do not turn one successful experiment into policy without repeated evidence
 - Keep the public model small: `ACTIVE.md` and `LEARNINGS.md` should stay readable without exposing extra layers as daily operating concepts
+- A recurring automation may read repo-tracked files for audit and alignment, but it should not modify repo-tracked files unless a human explicitly asks for implementation

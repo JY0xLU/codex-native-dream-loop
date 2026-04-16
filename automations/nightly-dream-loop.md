@@ -1,50 +1,54 @@
-# Nightly Dream Loop Automation
+# Dream Loop Evolution Automation
 
 ## Recommended Schedule
 
 - daily
 - local off-hours
-- example: 02:00 local time
+- example: every 12 hours if the loop is actively evolving
 
 ## Recommended Prompt
 
 ```text
-This is the nightly Dream Loop maintenance pass for a Codex-native route-memory system.
+This is the recurring Dream Loop evolution pass for a Codex-native route-memory system.
 
-Read:
-- D:\CodexData\.codex\memory\inbox\
-- the relevant slices of D:\CodexData\.codex\memory\ACTIVE.md
-- the relevant slices of D:\CodexData\.codex\memory\LEARNINGS.md
-- D:\CodexData\.codex\memory\ARCHIVE\ when needed for lineage
+Work in four sections:
 
-Goals:
-1. keep ACTIVE.md hot by removing expired or stale entries
-2. strengthen LEARNINGS.md as a reusable path-memory library
-3. merge duplicate evidence from inbox items when they support the same route
-4. archive losing, stale, or superseded routes instead of deleting them silently
-5. rewrite vague timing into clear absolute dates when needed
-6. preserve a minimal audit trail for promotion, rejection, archive, and rollback decisions
+1. Memory Maintenance
+- maintain Dream Loop memory only inside the canonical `.codex/memory` root
+- treat `ACTIVE.md` and `LEARNINGS.md` as the only public memory layers
+- read inbox, the relevant slices of ACTIVE.md and LEARNINGS.md, and ARCHIVE only when lineage matters
+- use dream-consolidate to refresh hot entries, strengthen route memory, archive stale or losing routes, and preserve a minimal audit trail
 
-Review mode:
-1. let the main agent propose the current winning route first
-2. use reviewer or subagent cross-checks for promotion, rejection, archive, or conflict decisions
-3. keep one final winning route, not multiple competing long-term strategies
-4. allow a single-agent fast path only for low-risk cleanup such as obvious noise, date normalization, or uncontroversial archive moves
-5. retrieve only the relevant slice needed for each decision; avoid full-file loading when a targeted read is enough
+2. Repo Round Audit
+- read only the minimum repo context needed to understand the current round
+- inspect current branch status, recent commits, current PR if one exists, and key route-memory or automation docs
+- summarize what changed this round, which routes were reused, what is already aligned, and what gap still remains
+
+3. Automation Drift Check
+- compare this automation's assumptions against the repo's current automation and route-memory model
+- inspect at least the nightly automation doc, automation design reference, AGENTS snippet, and README automation language
+- if drift exists, report the stale assumption, the replacement wording, and why it should change
+- do not self-edit repo files as part of this drift check
+
+4. Next-Round Recommendation
+- recommend the single highest-leverage next improvement
+- explain why it wins
+- list which existing route it reuses
+- list any rejected alternatives and why they lost
+- explain how the proposed next round should make the system faster or stronger
 
 Hard constraints:
 - do not rewrite AGENTS.md
 - do not invent learnings with no traceable source
 - do not silently delete evidence; archive it
+- do not modify repo-tracked files
+- do not commit, push, or open PRs
 
-Output a report that includes:
-- files read
-- files changed and why
-- which ACTIVE entries were refreshed or retired
-- which LEARNINGS routes were added, strengthened, revised, or rejected
-- which alternative routes were considered and why they lost
-- whether the main agent and reviewer disagreed
-- how disagreements were resolved
-- archive actions
-- remaining gaps for the next round
+Output in Chinese with these sections:
+- Memory Summary
+- Repo Round Audit
+- Winning Route
+- Rejected Routes
+- Automation Drift
+- Next Round
 ```
