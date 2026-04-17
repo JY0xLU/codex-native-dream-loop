@@ -4,241 +4,153 @@
 
 ![Codex Native Dream Loop logo](assets/hero-logo.png)
 
-**A Codex-native system for self-improvement, scoped memory, controlled capability evolution, and auditable nightly consolidation.**
+**A Codex-native self-improvement loop with a simple public model: `ACTIVE.md` for what is hot now, `LEARNINGS.md` for reusable winning routes.**
 
-Codex Native Dream Loop is built for people who want Codex to remember the right things, discover the right capabilities at the right time, and keep getting better without turning context into a landfill.
+Codex Native Dream Loop is for people who want Codex to get stronger through repeated work without turning memory into a maze. The goal is not to expose more layers. The goal is to help Codex reuse the best path faster the next time.
 
 ![Codex Native](https://img.shields.io/badge/Codex-Native-1f6feb)
 ![Self-Improving](https://img.shields.io/badge/Self--Improving-3fb950)
-![Scoped Memory](https://img.shields.io/badge/Scoped%20Memory-8b5cf6)
-![Capability Evolution](https://img.shields.io/badge/Capability%20Evolution-2563eb)
-![Nightly Consolidation](https://img.shields.io/badge/Nightly%20Consolidation-f59e0b)
-![Subagent Review](https://img.shields.io/badge/Subagent%20Review-0ea5e9)
+![Dual Layer Model](https://img.shields.io/badge/Public%20Model-Dual%20Layer-2563eb)
+![Path Memory](https://img.shields.io/badge/Path%20Memory-Reuse-0f766e)
 ![Auditable](https://img.shields.io/badge/Auditable-111827)
 
 **Quick Navigation**
 
-[Why It Exists](#why-it-exists) | [Core Capabilities](#core-capabilities) | [How It Works](#how-it-works) | [Memory Model](#memory-model) | [Capability Evolution](#capability-evolution) | [Review and Audit](#review-and-audit) | [Quick Start](#quick-start)
+[Why It Exists](#why-it-exists) | [Public Model](#public-model) | [How The Loop Works](#how-the-loop-works) | [Core Skills](#core-skills) | [Automation](#automation) | [Internal Mechanics](#internal-mechanics) | [Quick Start](#quick-start)
 
-> Most agents do not really learn. They either accumulate context, or improvise tooling one task at a time.
-> Codex Native Dream Loop fixes both halves: it captures signal during work, chooses capabilities through a controlled path, consolidates off-hours, and brings back only the memory that still matters.
+> Most agents do not really improve. They either keep re-solving the same problem, or they bury themselves under too much memory structure.
+> Codex Native Dream Loop keeps the public model small, reuses good routes, and hides the bookkeeping behind the scenes.
 
 ## Why It Exists
 
-Once an agent has worked with you for a while, the biggest failure is usually not raw capability. It is operational drift.
+The biggest failure after an agent has worked with you for a while is usually not raw model capability. It is path drift.
 
-- temporary workarounds start looking like permanent rules
-- stable preferences stay trapped inside old conversations
-- useful patterns never graduate into reusable guidance
-- the same mistakes get rediscovered again and again
-- promising new tools get adopted inconsistently or too late
-- context gets longer, but not smarter
+- useful routes are rediscovered from scratch
+- old lessons stay trapped inside long conversations
+- urgent temporary rules linger longer than they should
+- promising plugins or skills get found too late
+- memory systems add layers faster than they add clarity
 
-This project exists to fix that loop.
+This repo exists to make the next run cheaper than the last one.
 
-Instead of treating memory as a pile of notes, Codex Native Dream Loop treats self-improvement as a small operating cycle:
+It does that by keeping only two public memory surfaces:
 
-- recall only the narrowest memory slice that matters
-- classify the task before deciding how to solve it
-- discover capabilities in a controlled order
-- validate new plugins, skills, or projects before adoption
-- capture high-signal outcomes during active work
-- consolidate, deduplicate, and promote memory off-hours
-- keep every meaningful decision auditable
+- `ACTIVE.md`
+  - what should change behavior right now
+- `LEARNINGS.md`
+  - route memory for paths that already proved they win
 
-The goal is simple: **make Codex improve through work, not just sit on more context.**
+Everything else stays in the background.
 
-## Core Capabilities
+## Public Model
 
-| Capability | What It Does | Why It Matters |
-|---|---|---|
-| Scoped Memory | Splits memory into `global`, `repo`, and `thread` scope. | Prevents cross-project pollution and keeps retrieval targeted. |
-| Daytime Capture | Records high-signal observations into `inbox/` during active work. | Keeps the main task lightweight and avoids rewriting long-term memory mid-flight. |
-| Capability Evolution | Classifies tasks and discovers capabilities in a fixed order: official plugins, installable official plugins, local skills, then trusted GitHub projects. | Prevents random tool drift and keeps self-improvement deliberate. |
-| Validation Gate | Checks relevance, maintenance recency, source trust, and integration cost before adopting new capabilities. | Reduces bad installs and weak one-off experiments. |
-| Nightly Consolidation | Deduplicates, expires, rewrites, and promotes memory off-hours. | Lets the system improve without interrupting active work. |
-| Reviewer-Assisted Promotion | Uses reviewer checks for important promotion, rejection, archive, and conflict decisions. | Reduces bad promotion and keeps the loop honest. |
-| Operational vs LongTerm Memory | Separates temporary but important guidance from stable cross-task patterns. | Makes memory reusable without turning everything into a permanent rule. |
-| Audit Trail | Preserves source IDs, verdicts, and rollback clues. | Makes every memory change explainable and recoverable. |
-| Codex-Native Workflow | Fits `AGENTS.md`, skills, automations, worktrees, sandboxing, plugins, and subagents. | Uses Codex the way it is designed to work instead of fighting the platform. |
+This repo deliberately exposes only two public layers.
 
-## How It Works
+### `ACTIVE.md`
 
-The loop is intentionally simple and split into distinct responsibilities.
+`ACTIVE.md` is the hot layer.
 
-1. Recall only the smallest relevant slice from `ACTIVE.md` and `LEARNINGS.md`.
-2. Classify the task as `repair`, `optimize`, `innovate`, or `explore`.
-3. Discover capabilities in this order:
-   enabled official plugins -> installable official plugins -> local built-in skills -> trusted GitHub skills or projects.
-4. Validate any newly adopted capability before using it.
-5. Finish the task with the chosen capability path.
-6. Use `capture-memory` to record high-signal outcomes, blockers, or workflow wins into `inbox/`.
-7. Off-hours, use `dream-consolidate` to deduplicate, review, promote, reject, or archive with audit-first discipline.
+Use it for:
 
-This is the full operating cycle:
+- temporary but important rules
+- current hot routes
+- phase-specific behavior that should influence the next task immediately
 
-`recall -> classify -> discover -> validate -> adopt -> capture -> consolidate`
+If an item stops affecting near-term decisions, it should not stay here.
 
-## Memory Model
+### `LEARNINGS.md`
 
-Codex Native Dream Loop keeps the memory model short on purpose.
+`LEARNINGS.md` is the path memory layer.
 
-### 1. Policy
+Each learning is a route entry, not just a generic life lesson. A good entry answers:
 
-`AGENTS.md` remains the human-facing policy layer.
+- what kind of task this route fits
+- which path should be tried first
+- why that path wins
+- when it was last validated
+- what evidence supports it
+- what fallback or avoid condition matters
 
-- permanent operating rules live here
-- safety boundaries live here
-- policy-like changes must be proposed for review
-- this layer must not be treated as a casual scratchpad
+This makes the system feel less like “memory storage” and more like “route reuse.”
 
-### 2. Memory Scopes
+## How The Loop Works
 
-Only three scopes are used:
+The operating cycle is:
 
-- `global` for stable cross-project patterns
-- `repo` for project-specific habits and rules
-- `thread` for short-lived working context
+`recall -> choose -> search if needed -> execute -> capture -> consolidate`
 
-Readable projections stay simple:
+In practice:
 
-- `ACTIVE.md` is the operational projection
-- `LEARNINGS.md` is the long-term projection
+1. Read the smallest relevant slice from `ACTIVE.md` and `LEARNINGS.md`.
+2. If a known route already fits, reuse it first.
+3. If confidence is not high enough, let `capability-evolution` search in order:
+   enabled official plugins -> installable official plugins -> local skills -> trusted GitHub projects.
+4. Execute with one chosen route, not multiple competing routes.
+5. Use `capture-memory` to record only the high-signal result or blocker.
+6. Use `dream-consolidate` off-hours to keep `ACTIVE.md` hot, strengthen `LEARNINGS.md`, and archive stale paths.
 
-### 3. Improvement Loop
+The public model stays small even though the internal machinery is still auditable.
 
-The improvement loop is now split across three installed skills:
+## Core Skills
+
+This repo currently ships three main skills:
 
 - `capture-memory`
-  - records high-signal observations during active work
-  - stays lightweight
-  - does not consolidate or promote memory
+  - lightweight event capture during active work
 - `capability-evolution`
-  - classifies the task intent
-  - discovers and validates capability options
-  - separates adoption from long-term memory decisions
+  - route discovery, validation, and capability selection
 - `dream-consolidate`
-  - performs off-hours cleanup and consolidation
-  - builds candidates
-  - reviews promotion or rejection paths
-  - updates projections and audit records
+  - off-hours cleanup, hot-layer refresh, route promotion, and audit reporting
 
-## Capability Evolution
+Together, they support a single idea:
 
-This repo adopts an EvoMap-lite stance rather than a full protocol stack.
+**reuse the best known route first, and only search wider when needed.**
 
-The goal is not to recreate Genes, Capsules, or a distributed evolution network. The goal is to give Codex a stable, auditable way to improve how it works inside normal tasks.
+## Automation
 
-### Intent Types
+This repo assumes a single recurring automation, not a growing stack of separate scheduled agents.
 
-- `repair`
-  - restore a broken or missing capability path
-- `optimize`
-  - improve an existing path without changing the task shape
-- `innovate`
-  - add a meaningful new capability or workflow
-- `explore`
-  - escalate to GitHub discovery only when official and local options are insufficient or unclear
+That automation should do four things in one pass:
 
-### Discovery Order
+- maintain Dream Loop memory under the dual-layer public model
+- audit the current repo and PR round
+- check whether the automation prompt itself has drifted behind the repo
+- recommend the next smallest useful round of improvement
 
-Always search in this order and stop at the first sufficient option:
+It should be strong enough to stay aligned with the repo as the system evolves, but bounded enough that it only audits and recommends at the repo layer instead of silently editing tracked files.
 
-1. enabled official plugins
-2. installable official plugins
-3. local built-in skills
-4. trusted GitHub skills or projects
+## Internal Mechanics
 
-### Validation Gate
+The system still keeps some internal machinery, but it should not become the main user-facing mental model.
 
-Before adopting a new capability, check:
+Internal support mechanisms include:
 
-- relevance to the task
-- maintenance recency
-- source trustworthiness
-- integration cost versus expected benefit
+- `inbox/`
+  - append-only capture buffer for raw signal
+- `AUDIT_LOG.md`
+  - minimal trail for promotion, rejection, archive, and rollback decisions
+- `ARCHIVE/`
+  - retired or superseded material kept for traceability
 
-### Separation Of Duties
-
-This matters because the same action should not both change how the system works and decide what becomes long-term memory.
-
-- capability adoption happens during the task
-- memory promotion happens later, through Dream Loop review
-
-## Review and Audit
-
-This project deliberately favors reviewer-assisted maintenance instead of a single unchallenged path.
-
-- `capture-memory` stays lightweight and event-oriented
-- `capability-evolution` can compare multiple capability options before adoption
-- `dream-consolidate` should prefer reviewer or subagent review for promotion, rejection, archive, and conflict decisions
-- low-risk cleanup can still use a single-agent fast path
-
-Audit is not a bonus feature. It is what keeps self-improvement trustworthy.
-
-Every meaningful change should preserve enough evidence to answer:
-
-- what source event triggered it
-- what path was chosen
-- what was rejected and why
-- what reviewer disagreed, if any
-- how to roll the change back later
+These exist to support rollback and review. They are not meant to become extra public layers that people have to reason about every day.
 
 ## What This Repo Includes
 
-This repo provides the minimum moving parts for a Codex-native improvement loop:
-
-- `skills/capture-memory/`
-  - daytime signal capture
-  - writes structured observations into `inbox/`
-- `skills/capability-evolution/`
-  - active-work capability discovery and validation
-  - keeps plugins, skills, and GitHub discovery in a controlled order
-- `skills/dream-consolidate/`
-  - off-hours cleanup, promotion, archive, and reporting
 - `templates/`
-  - global `AGENTS.md` starter snippet
-  - memory structure and projection templates
-- `references/`
-  - scope, promotion, audit, and capability-evolution design notes
+  - a global `AGENTS.md` starter snippet
+  - a minimal memory skeleton centered on `ACTIVE.md` and `LEARNINGS.md`
+- `skills/`
+  - the three skills that run the loop
 - `automations/`
-  - recommended nightly prompts and scheduling ideas
-
-## Core Rules
-
-- active work writes new signal to `inbox/`, not directly to long-term memory
-- `capture-memory` stays event-oriented and lightweight
-- `capability-evolution` handles discovery and validation, not promotion
-- GitHub search is an escalation path, not the default
-- third-party capability adoption and material global changes should be surfaced to the user
-- only off-hours consolidation should rewrite long-term memory state
-- every promotion, merge, archive, rejection, or rollback should be auditable
-
-## Repo Structure
-
-```text
-repo/
-├── README.md
-├── README.zh-CN.md
-├── assets/
-│   └── hero-logo.png
-├── references/
-│   ├── audit-model.md
-│   ├── capability-evolution-model.md
-│   ├── promotion-rules.md
-│   └── scope-model.md
-├── templates/
-├── examples/
-├── automations/
-└── skills/
-    ├── capture-memory/
-    ├── capability-evolution/
-    └── dream-consolidate/
-```
+  - the single recurring automation prompt for memory maintenance, repo round audit, drift check, and next-round recommendations
+- `references/`
+  - concise design notes for route memory, promotion, and automation behavior
+- `examples/`
+  - a minimal global example using the dual-layer public model
 
 ## Quick Start
 
-If you want the fastest path, hand this repo to Codex and let it install the pieces for you.
+If you want the fastest setup, give this repo to Codex and let it wire the pieces into your Codex home.
 
 For example:
 
@@ -246,25 +158,23 @@ For example:
 Install the skills from https://github.com/JY0xLU/codex-native-dream-loop and wire them into my Codex setup.
 ```
 
-If you want to install manually:
+If you want to install it manually:
 
 1. Copy `skills/capture-memory/`, `skills/capability-evolution/`, and `skills/dream-consolidate/` into `$CODEX_HOME/skills/` or `~/.codex/skills/`.
 2. Copy `templates/global/` into your Codex home as the starter structure.
 3. Merge the `AGENTS.md` snippet into your global or project entrypoint.
-4. During active work, use `capability-evolution` when the task needs controlled tool or workflow discovery.
-5. Use `capture-memory` to record validated high-signal outcomes into `inbox/`.
-6. Run `dream-consolidate` during nightly or explicit maintenance passes.
-7. Prefer reviewer or subagent review for important promotion and rejection decisions.
+4. During work, rely on `ACTIVE.md` first and `LEARNINGS.md` second.
+5. Use `capability-evolution` when you need to search for a better route.
+6. Use `capture-memory` only for high-signal results.
+7. Run the single recurring Dream Loop automation off-hours to refresh the hot layer, audit the current repo/PR state, check prompt drift, and recommend the next round.
 
-## What “Working Well” Should Look Like
+## What “Good” Looks Like
 
-The goal is not to make memory bigger. The goal is to make the whole system sharper.
+This repo is working well when:
 
-- a new pattern starts as `Observed`
-- repeated signal becomes a candidate
-- current-phase guidance becomes `ACTIVE.md`
-- stable cross-task guidance becomes `LEARNINGS.md`
-- one-off capability experiments can stay at reference or trial level without becoming policy
-- stale or superseded material gets archived with an explanation trail
-
-When memory stays scoped, capability adoption stays controlled, and promotion stays auditable, Codex can keep improving without becoming messy, brittle, or overconfident.
+- the next task starts from an existing winning route instead of from zero
+- `ACTIVE.md` stays short and obviously current
+- `LEARNINGS.md` reads like a library of reusable routes, not a graveyard of vague rules
+- plugins and skills are discovered proactively when needed
+- rejected or stale paths are archived instead of silently disappearing
+- the system gets faster without becoming more confusing

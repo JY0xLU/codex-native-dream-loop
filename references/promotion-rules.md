@@ -1,24 +1,24 @@
 # Promotion Rules
 
-Use these rules when deciding whether a captured observation should remain raw, move into `ACTIVE.md`, or graduate into `LEARNINGS.md` / LongTerm.
+Use these rules when deciding whether a captured signal should stay raw, become a hot route in `ACTIVE.md`, graduate into `LEARNINGS.md` as reusable path memory, or be archived.
 
 ## Minimum Bar
 
 Promote only when an item is:
 
-- repeated or clearly stable
-- generalizable beyond a single moment
-- actionable as a concrete rule or practice
+- source-backed
+- actionable as a route or rule
+- likely to improve the next task, not just describe the last one
 
 ## Promote To `ACTIVE.md`
 
-Use `ACTIVE.md` for the operational projection:
+Use `ACTIVE.md` for hot routes and hot rules when the item is:
 
-- high-frequency right now
-- likely to matter at the start of upcoming tasks
-- temporary, operational, or phase-specific
+- important right now
+- likely to affect the next few tasks immediately
+- temporary, phase-specific, or tied to a current platform or incident
 
-Every temporary item should include one of:
+Every `ACTIVE.md` item should include one of:
 
 - an expiry date
 - a removal condition
@@ -26,41 +26,47 @@ Every temporary item should include one of:
 
 ## Promote To `LEARNINGS.md`
 
-Use `LEARNINGS.md` for the long-term projection:
+Use `LEARNINGS.md` for route memory when the item is:
 
-- stable across sessions
-- useful across multiple tasks
-- still valuable after the current sprint or incident ends
+- already validated as a winning path
+- reusable across tasks or sessions
+- specific enough to tell the next run what to try first
+- able to explain why the route wins and when it should be reused
 
-An agent reviewer may auto-review and promote clear cases into LongTerm (`LEARNINGS.md`), but Policy changes still require human approval.
+A good `LEARNINGS.md` entry should capture:
 
-Thread-scoped context should usually stay temporary. If a thread-only pattern looks durable, rewrite it at `repo` or `global` scope before promoting it into `LEARNINGS.md`.
+- intent
+- pattern
+- best path
+- why it wins
+- last validated time
+- evidence
+- fallback or avoid notes
 
 ## Keep In `inbox/`
 
-Do not promote yet when an item is:
+Keep the signal raw when it is:
 
-- only observed once
+- only seen once
 - still ambiguous
-- tightly tied to a one-off event
-- too vague to become a concrete rule
+- too weak to justify a route decision
+- useful as evidence later, but not yet worth surfacing in `ACTIVE.md` or `LEARNINGS.md`
 
-## Reject Entirely
+## Archive
 
-Reject or archive items that are:
+Archive when the item is:
 
-- casual chatter
-- trivial typos
-- low-signal noise
-- emotional but non-operational commentary
+- superseded by a better route
+- expired and no longer hot
+- rejected after review
+- no longer worth keeping in public memory
 
 ## Audit Requirements
 
-Every promotion decision should capture:
+Every promotion or archive decision should preserve:
 
 - source entry id
 - target file
-- promotion rationale
-- rejection rationale if applicable
-- expiry condition when promoting into `ACTIVE.md`
-- reviewer path when an agent reviewer auto-promotes into LongTerm
+- why the route won or lost
+- rollback clue
+- reviewer path when reviewer or subagent review was used

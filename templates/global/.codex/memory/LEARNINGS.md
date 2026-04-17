@@ -1,20 +1,24 @@
 # LEARNINGS
 
-Long-term memory projection.
+Reusable path memory.
 
-Use this file for stable patterns that should survive beyond a single task or incident. Keep the rule, the evidence, and the reason it generalizes.
+Use this file for routes that repeatedly win and are worth reusing across tasks or sessions. Each entry should read like a route library record, not a vague lesson.
 
 ## Entry Format
-- [LRN-YYYYMMDD-###] title
+- [LRN-YYYYMMDD-###] route title
+  Intent: repair | optimize | innovate | explore
   Scope: global | repo
-  Stage: LongTerm
-  Source trace: inbox id, report id, or prior memory id
+  Pattern: what kind of task this route fits
+  Best Path: first-choice plugin / skill / tool chain
+  Why It Wins: why this route is faster, safer, or more reliable
+  Last validated: YYYY-MM-DD
+  Evidence: inbox ids, audit ids, PRs, or prior memory ids
+  Fallback / Avoid: what to try second, or what failure mode to avoid
   Reviewer verdict: approved | needs review | rejected
-  Final decision: keep | refine | archive
-  Rollback clue: what to undo if the pattern stops being true
+  Rollback clue: what to undo if the route stops winning
 
-## Long-Term Rules
+## Path Library
 - ...
 
-## Replaced or Retired
+## Retired Or Replaced Routes
 - ...

@@ -1,20 +1,23 @@
 # ACTIVE
 
-Operational memory projection.
+Hot routes and hot rules that should change behavior right now.
 
-Use this file for current guidance that is still active in practice. Keep it short, source-backed, and easy to roll back.
+Keep this file short. If an entry no longer affects near-term decisions, it should be revised, archived, or moved out of the hot layer.
 
 ## Entry Format
 - [ACT-YYYYMMDD-###] title
+  Intent: repair | optimize | innovate | explore
   Scope: global | repo | thread
-  Stage: Operational
-  Source trace: inbox id, report id, or prior memory id
+  Pattern: when this hot route or hot rule applies right now
+  Best Path: plugin / skill / tool order to try first
+  Why Hot: why it matters immediately
+  Source trace: inbox id, audit id, PR, or prior memory id
+  Last validated: YYYY-MM-DD
   Reviewer verdict: approved | needs review | rejected
-  Final decision: keep | revise | retire
   Rollback clue: what to undo if this stops fitting
-  Expiry: date or removal condition
+  Expiry: date or clear removal condition
 
-## Operational Rules
+## Hot Routes And Rules
 - ...
 
 ## Last Reviewed

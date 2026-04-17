@@ -1,13 +1,12 @@
 # Inbox
 
-Append-only capture for Observed items.
+Append-only internal capture buffer.
 
-Use this folder for raw signals, draft candidates, and short notes that have not been promoted yet. Keep entries source-backed and easy to audit later.
+Use this folder for raw signals and short notes before off-hours consolidation decides whether anything should affect `ACTIVE.md`, strengthen `LEARNINGS.md`, or be archived. This folder exists to support the loop, not to become a third public operating layer.
 
 ## Recommended entry fields
 - time
 - scope
-- stage
 - source trace
 - summary
 - details

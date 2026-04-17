@@ -142,7 +142,7 @@ Not every discovered option deserves the same status.
 ### `stable`
 
 - reused successfully across multiple tasks or contexts
-- good candidate for Dream Loop capture and later promotion into `LEARNINGS.md`
+- good fit for Dream Loop promotion into `LEARNINGS.md` as reusable route memory
 
 ### `policy`
 
@@ -154,7 +154,7 @@ Not every discovered option deserves the same status.
 Capability evolution does not replace Dream Loop responsibilities.
 
 - `capture-memory` records high-signal observations and outcomes during active work
-- `dream-consolidate` decides whether the result stays raw, becomes operational guidance, graduates into long-term memory, or is archived
+- `dream-consolidate` decides whether the result stays raw, becomes hot `ACTIVE.md` guidance, graduates into `LEARNINGS.md` route memory, or is archived
 
 This separation keeps the system honest:
 

@@ -1,22 +1,15 @@
 # LEARNINGS
 
-Long-term learning projection. Entries here should already be stable enough for future minimal retrieval.
+Reusable path memory for the current scope.
 
 ## [LRN-20260408-001] narrow-first validation
-**Logged**: 2026-04-08T09:30:00+08:00
-**State**: LongTerm
-**Scope**: repo
-**Task Type**: frontend-validation
-**Repeat Count**: 4
-**Score**: 0.86
-**Reviewer Verdict**: promote
-**Source IDs**: OBS-20260406-002, OBS-20260407-001, OBS-20260408-001
-
-### Summary
-Run the narrowest relevant test target before broad lint or full-suite validation.
-
-### Why It Generalizes
-This pattern repeatedly reduces wasted time across similar repo tasks by catching local breakage before broader checks.
-
-### Actionable Rule
-When the changed area is clear, validate with the narrowest relevant target first and widen only after it passes.
+Intent: optimize
+Scope: repo
+Pattern: frontend validation work where the changed area is already clear
+Best Path: run the narrow web test target -> confirm local UI behavior -> run repo lint after the narrow target passes
+Why It Wins: this path repeatedly catches local breakage faster than lint-first or full-suite-first validation
+Last validated: 2026-04-08
+Evidence: OBS-20260406-002, OBS-20260407-001, OBS-20260408-001, AUDIT-20260408-001
+Fallback / Avoid: avoid using broad lint-first validation as the default when the changed area is already narrow and obvious
+Reviewer verdict: approved
+Rollback clue: revise or archive if repeated tasks stop benefiting from narrow-first validation

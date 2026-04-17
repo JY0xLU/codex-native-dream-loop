@@ -1,4 +1,4 @@
 interface:
   display_name: "Dream Consolidate"
-  short_description: "Generate and review Dream Loop memory candidates with audit-first consolidation."
-  default_prompt: "Use $dream-consolidate to build candidates, review them, and apply audit-first memory updates without rewriting AGENTS.md."
+  short_description: "Keep ACTIVE hot, strengthen LEARNINGS as route memory, and apply audit-first Dream Loop maintenance."
+  default_prompt: "Use $dream-consolidate to refresh ACTIVE.md, strengthen LEARNINGS.md as reusable route memory, and apply audit-first updates without rewriting AGENTS.md."

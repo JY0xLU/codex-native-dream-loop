@@ -1,54 +1,58 @@
-# Nightly Dream Loop Automation
+# Dream Loop Evolution Automation
 
 ## Recommended Schedule
 
-- Daily
-- Local off-hours
-- Example: 02:00 local time
+- every 6 hours while the loop is actively evolving
+- local off-hours whenever possible
+- keep one recurring automation rather than splitting memory and audit into separate schedules
 
 ## Recommended Prompt
 
 ```text
-This is the nightly Dream Loop consolidation pass for a Codex-native memory system.
+This is the recurring Dream Loop evolution pass for a Codex-native route-memory system.
 
-Read:
-- D:\CodexData\.codex\memory\inbox\
-- the relevant slices of D:\CodexData\.codex\memory\ACTIVE.md
-- the relevant slices of D:\CodexData\.codex\memory\LEARNINGS.md
-- D:\CodexData\.codex\memory\FEATURE_REQUESTS.md
+Work in four sections:
 
-Goals:
-1. generate candidates from inbox items and existing memory
-2. deduplicate repeated observations
-3. classify each item as Observed, Candidate, Operational, LongTerm, or Archived
-4. remove or archive expired temporary guidance
-5. rewrite relative dates into absolute dates when needed
-6. keep temporary operational guidance in ACTIVE.md as Operational
-7. keep stable cross-task patterns in LEARNINGS.md as LongTerm
-8. keep future capability gaps in FEATURE_REQUESTS.md
-9. keep policy-like guidance as proposals unless a human approves a promotion
+1. Memory Maintenance
+- maintain Dream Loop memory only inside the canonical `.codex/memory` root
+- treat `ACTIVE.md` and `LEARNINGS.md` as the only public memory layers
+- read inbox, the relevant slices of ACTIVE.md and LEARNINGS.md, and ARCHIVE only when lineage matters
+- use dream-consolidate to refresh hot entries, strengthen route memory, archive stale or losing routes, and preserve a minimal audit trail
+- treat `inbox` as a short-lived staging buffer, not a long-term candidate pool
+- inspect entries older than 6 hours and auto-land only the ones that are contradiction-free, source-backed, and already written in executable form
+- write hot temporary guidance into `ACTIVE.md`, stable reusable preferences or routes into `LEARNINGS.md`, and archive noise or rejected evidence
+- do not promote by age alone; require stronger evidence for `LEARNINGS.md` unless the item is an explicit user directive or correction with a durable action
 
-Review mode:
-1. let the main agent build the candidate list first
-2. use reviewer-assisted review for promotion, rejection, archive, and conflict decisions
-3. promote to LongTerm only when the evidence is stable and the reviewer agrees
-4. keep policy-like items proposal-only unless a human explicitly approves them
-5. allow a single-agent fast path only for low-risk cleanup such as obvious noise, date normalization, or uncontroversial audit updates
-6. retrieve only the relevant global, repo, or thread slice needed for each decision; avoid full-file loading when a targeted read is enough
+2. Repo Round Audit
+- read only the minimum repo context needed to understand the current round
+- inspect current branch status, recent commits, current PR if one exists, and key route-memory or automation docs
+- summarize what changed this round, which routes were reused, what is already aligned, and what gap still remains
+
+3. Automation Drift Check
+- compare this automation's assumptions against the repo's current automation and route-memory model
+- inspect at least the nightly automation doc, automation design reference, AGENTS snippet, and README automation language
+- if drift exists, report the stale assumption, the replacement wording, and why it should change
+- do not self-edit repo files as part of this drift check
+
+4. Next-Round Recommendation
+- recommend the single highest-leverage next improvement
+- explain why it wins
+- list which existing route it reuses
+- list any rejected alternatives and why they lost
+- explain how the proposed next round should make the system faster or stronger
 
 Hard constraints:
 - do not rewrite AGENTS.md
 - do not invent learnings with no traceable source
 - do not silently delete evidence; archive it
+- do not modify repo-tracked files
+- do not commit, push, or open PRs
 
-Output a report that includes:
-- files read
-- files changed and why
-- which candidates were reviewed
-- whether the main agent and reviewer disagreed
-- how disagreements were resolved
-- promotions made
-- promotions rejected and why
-- archive actions
-- remaining cleanup
+Output in Chinese with these sections:
+- Memory Summary
+- Repo Round Audit
+- Winning Route
+- Rejected Routes
+- Automation Drift
+- Next Round
 ```
