@@ -1,12 +1,12 @@
 # Codex Native Dream Loop
 
-中文 | [English](README.md)
+[中文](README.zh-CN.md) | [English](README.md)
 
 ![Codex Native Dream Loop logo](assets/hero-logo.png)
 
-**一个面向 Codex 的自我进化闭环，对外只保留两个主层：`ACTIVE.md` 负责当前热路径，`LEARNINGS.md` 负责可复用的获胜路径。**
+**这是一套面向 Codex 的记忆机制 + 自我进化机制：前台只暴露小而清晰的公开接口，后台负责记忆捕获、路线复用、能力进化和离线整理。**
 
-`Codex Native Dream Loop` 适合这样的人：希望 Codex 越做越强，但不想把记忆系统越堆越复杂。目标不是让人记住更多层级，而是让 Codex 下次更快走上已经验证过的好路线。
+`Codex Native Dream Loop` 适合这样的人：希望 Codex 越做越强，但不想把记忆系统越堆越复杂。目标不只是减少层级，而是把记忆、自我进化和执行优化真正接在一起，让 Codex 下次更快走上已经验证过的好路线。
 
 ![Codex Native](https://img.shields.io/badge/Codex-Native-1f6feb)
 ![Self-Improving](https://img.shields.io/badge/Self--Improving-3fb950)
@@ -18,12 +18,12 @@
 
 [为什么存在](#为什么存在) | [公开模型](#公开模型) | [闭环如何工作](#闭环如何工作) | [核心 Skills](#核心-skills) | [自动化](#自动化) | [后台机制](#后台机制) | [快速开始](#快速开始)
 
-> 很多 agent 不是不会做事，而是每次都要重新摸路，或者把记忆层级越堆越多。
+> 很多 agent 不是不会做事，而是每次都要重新摸路，或者把记忆层级越堆越多。  
 > Codex Native Dream Loop 要做的，是把公开模型压缩到最小，把最佳路径复用起来，把必要的审计藏到后台。
 
 ## 为什么存在
 
-一个 agent 跑久了以后，最大的问题往往不是模型不够强，而是“路径漂移”。
+一个 agent 跑久以后，最大的问题往往不是模型能力不够，而是“路径漂移”。
 
 - 明明走通过的路线，下次还要从零再试
 - 有用经验散落在旧对话里，没有被收回来
@@ -33,7 +33,7 @@
 
 这个仓库存在的目的，就是让下一次行动比上一次更省、更快、更稳。
 
-它对外只保留两个公开层：
+它的做法不是只谈两层 memory，而是把更完整的自我进化闭环收在后台，同时对外只保留两个公开层：
 
 - `ACTIVE.md`
   - 现在就该影响行为的热路径和热规则
@@ -44,7 +44,7 @@
 
 ## 公开模型
 
-这个仓库故意只暴露两层。
+这个仓库故意只暴露两层公开模型，但完整系统本身还包括 `capture-memory`、`capability-evolution`、`dream-consolidate` 和自动化审计。
 
 ### `ACTIVE.md`
 
@@ -52,7 +52,7 @@
 
 这里放的是：
 
-- 当下阶段真的重要的规则
+- 当前阶段真的重要的规则
 - 当前最值得优先走的热路径
 - 只要进入下一次任务就会立刻影响决策的内容
 
@@ -60,7 +60,7 @@
 
 ### `LEARNINGS.md`
 
-`LEARNINGS.md` 是路径记忆层。
+`LEARNINGS.md` 是路径记忆层，不是什么 “active learning” 回路。
 
 每条 learning 都不是泛泛的经验句子，而是一条“获胜路径”记录。它至少应该回答：
 
@@ -174,7 +174,7 @@
 
 - 新任务不再频繁从零开始
 - `ACTIVE.md` 会一直很短，而且一眼能看出现在为什么重要
-- `LEARNINGS.md` 更像路径库，不像心得堆
+- `LEARNINGS.md` 更像路线库，不像心得堆
 - plugin 和 skill 会在需要时被主动找出来
 - 输掉的路线会被归档，而不是静默消失
 - 系统变快了，但没有变得更乱
