@@ -32,12 +32,13 @@ Its job is to refine the public two-layer model and keep the supporting audit tr
 ## Main Actions
 
 1. review recent inbox evidence and current public memory
-2. keep `ACTIVE.md` hot by revising or retiring stale entries
-3. strengthen `LEARNINGS.md` with validated winning routes
+2. treat `inbox/` as a short-lived staging buffer rather than a long-term candidate pool
+3. keep `ACTIVE.md` hot by revising or retiring stale entries
 4. merge duplicate evidence when multiple entries support the same route
 5. archive losing, stale, rejected, or superseded routes instead of deleting them
 6. rewrite vague or relative dates into clearer absolute references
-7. append an audit report with source trace and route rationale
+7. auto-land high-signal entries older than one consolidation cycle when they pass the promotion checks
+8. append an audit report with source trace and route rationale
 
 ## Public-Memory Decisions
 
@@ -51,6 +52,16 @@ Strengthen `LEARNINGS.md` when:
 - the route has already proved reusable
 - the next task should be able to reuse it directly
 - the evidence explains why it wins
+- the entry already reads like an executable preference, route, capability choice, or failure pattern
+
+Auto-land from `inbox/` when all of these are true:
+
+- the entry is older than one consolidation cycle, which defaults to 6 hours in the recurring automation
+- no later user correction, reviewer objection, or contradictory source invalidates it
+- the entry has a source trace and is already written in short executable form
+- the destination is clear: `ACTIVE.md` for hot temporary guidance, `LEARNINGS.md` for stable reusable guidance
+
+Require stronger evidence before landing in `LEARNINGS.md` unless the item is an explicit user directive or correction with a durable action. For inferred routes, failures, or capabilities, prefer repeated evidence across unrelated tasks.
 
 Archive when:
 
@@ -62,6 +73,7 @@ Keep evidence in `inbox/` when:
 
 - it is still too early to surface publicly
 - it is useful as trace, but not yet strong enough to shape behavior
+- it has already waited one cycle but still lacks a clear target layer or contradiction-free evidence
 
 ## Hard Constraints
 
@@ -69,6 +81,7 @@ Keep evidence in `inbox/` when:
 - never invent learnings without source trace
 - never silently delete evidence; archive it
 - every promotion, rejection, or archive should be explainable
+- age alone is not enough for promotion
 - keep `capture-memory` lightweight; own review and promotion here
 - keep one final winning route when routes compete
 - use reviewer or subagent cross-checks for promotion, rejection, archive, or conflict decisions

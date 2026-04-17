@@ -2,9 +2,9 @@
 
 ## Recommended Schedule
 
-- daily
-- local off-hours
-- example: every 12 hours if the loop is actively evolving
+- every 6 hours while the loop is actively evolving
+- local off-hours whenever possible
+- keep one recurring automation rather than splitting memory and audit into separate schedules
 
 ## Recommended Prompt
 
@@ -18,6 +18,10 @@ Work in four sections:
 - treat `ACTIVE.md` and `LEARNINGS.md` as the only public memory layers
 - read inbox, the relevant slices of ACTIVE.md and LEARNINGS.md, and ARCHIVE only when lineage matters
 - use dream-consolidate to refresh hot entries, strengthen route memory, archive stale or losing routes, and preserve a minimal audit trail
+- treat `inbox` as a short-lived staging buffer, not a long-term candidate pool
+- inspect entries older than 6 hours and auto-land only the ones that are contradiction-free, source-backed, and already written in executable form
+- write hot temporary guidance into `ACTIVE.md`, stable reusable preferences or routes into `LEARNINGS.md`, and archive noise or rejected evidence
+- do not promote by age alone; require stronger evidence for `LEARNINGS.md` unless the item is an explicit user directive or correction with a durable action
 
 2. Repo Round Audit
 - read only the minimum repo context needed to understand the current round
