@@ -4,9 +4,9 @@
 
 ![Codex Native Dream Loop logo](assets/hero-logo.png)
 
-**A Codex-native memory and self-evolution system: memory capture, route reuse, capability evolution, and off-hours consolidation working together behind a small public interface.**
+**A Codex-native self-improvement loop with a simple public model: `ACTIVE.md` for what is hot now, `LEARNINGS.md` for reusable winning routes.**
 
-Codex Native Dream Loop is for people who want Codex to get stronger through repeated work without turning memory into a maze. The goal is not just to expose fewer layers. The goal is to combine memory, self-evolution, and execution optimization so Codex can reuse the best path faster the next time.
+Codex Native Dream Loop is for people who want Codex to get stronger through repeated work without turning memory into a maze. The goal is not to expose more layers. The goal is to help Codex reuse the best path faster the next time.
 
 ![Codex Native](https://img.shields.io/badge/Codex-Native-1f6feb)
 ![Self-Improving](https://img.shields.io/badge/Self--Improving-3fb950)
@@ -33,7 +33,7 @@ The biggest failure after an agent has worked with you for a while is usually no
 
 This repo exists to make the next run cheaper than the last one.
 
-It does that by pairing a broader self-evolution loop with a small public memory surface:
+It does that by keeping only two public memory surfaces:
 
 - `ACTIVE.md`
   - what should change behavior right now
@@ -44,7 +44,7 @@ Everything else stays in the background.
 
 ## Public Model
 
-This repo deliberately exposes only two public layers, even though the full system also includes capability evolution, capture, consolidation, and audit.
+This repo deliberately exposes only two public layers.
 
 ### `ACTIVE.md`
 
@@ -61,8 +61,6 @@ If an item stops affecting near-term decisions, it should not stay here.
 ### `LEARNINGS.md`
 
 `LEARNINGS.md` is the path memory layer.
-
-It is route memory, not an "active-learning" loop.
 
 Each learning is a route entry, not just a generic life lesson. A good entry answers:
 
