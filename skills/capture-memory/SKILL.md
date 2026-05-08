@@ -22,7 +22,7 @@ Its job is to record signal in the right layer immediately, not to delay strong 
 
 - the user wants a nightly review or cleanup pass
 - the user wants broad memory reorganization
-- the user wants to rewrite `AGENTS.md`
+- the user wants a broad `AGENTS.md` rewrite without a clear review path
 
 ## Output Targets
 
@@ -74,7 +74,7 @@ Write to the active inbox only when the signal is:
 
 - do not spray the same signal into multiple layers
 - do not invent durable learnings without traceable source
-- do not modify `AGENTS.md`
+- do not silently modify `AGENTS.md`; report any needed `AGENTS.md` change to the user before or while applying it
 - do not treat every one-off observation as memory-worthy
 
 ## Good Examples

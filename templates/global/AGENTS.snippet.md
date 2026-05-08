@@ -23,8 +23,9 @@ Capability evolution workflow:
    relevance to the task, maintenance recency, source trustworthiness, and integration cost versus expected benefit
 4. Use GitHub discovery only when official and local options are insufficient or unclear; it is an escalation path, not the default
 5. Report to the user before or while adopting third-party GitHub capabilities or making material global setup changes
-6. Reuse a known winning route first when it clearly fits; only search wider when confidence is too low
-7. Treat successful capability use as future memory signal; capture it now and let Dream Loop decide whether it belongs in `ACTIVE.md` or `LEARNINGS.md`
+6. Make capability discovery observable: list which official plugins/tools, installable official plugins, local skills, and GitHub/external options were checked, skipped, or blocked; do not claim third-party discovery or cross-review is effective from prompt text alone
+7. Reuse a known winning route first when it clearly fits; only search wider when confidence is too low
+8. Treat successful capability use as future memory signal; capture it now and let Dream Loop decide whether it belongs in `ACTIVE.md` or `LEARNINGS.md`
 
 During active work:
 1. Direct-land explicit strong signal into `~/.codex/memory/ACTIVE.md` or `~/.codex/memory/LEARNINGS.md` when the destination is already clear
@@ -36,6 +37,7 @@ During active work:
 Memory policy:
 1. Policy is human-approved only
 2. If a rule seems like policy, propose it for human review; do not auto-write it
+3. `AGENTS.md` may be edited when needed, but any proposed change must be reported to the user before or while applying it
 
 Off-hours and maintenance:
 1. Use a single recurring automation that maintains Dream Loop memory, audits the current repo or PR round, checks automation drift, and recommends the next round

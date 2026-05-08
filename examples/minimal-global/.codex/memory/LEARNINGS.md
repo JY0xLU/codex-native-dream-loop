@@ -23,6 +23,18 @@ Fallback / Avoid: avoid using broad lint-first validation as the default when th
 Reviewer verdict: approved
 Rollback clue: revise or archive if repeated tasks stop benefiting from narrow-first validation
 
+## [LRN-20260508-001] observable capability discovery
+Intent: optimize
+Scope: global
+Pattern: capability search, third-party tool adoption, or self-evolution audit work
+Best Path: show searched layers in order -> explain skipped or blocked layers -> list selected and rejected candidates -> only then claim the capability route is strong
+Why It Wins: capability evolution is only useful when the evidence shows what was actually checked; this prevents prompt text from being mistaken for execution
+Last validated: 2026-05-08
+Evidence: user skepticism about weak third-party search and cross-review, followed by capability-evolution update
+Fallback / Avoid: avoid claiming GitHub or third-party discovery worked unless GitHub/external search was reached or explicitly skipped with a concrete reason
+Reviewer verdict: needs review
+Rollback clue: revise if a dedicated capability-discovery ledger replaces manual searched-layer reporting
+
 ## Project-Specific Routes
 
 - ...

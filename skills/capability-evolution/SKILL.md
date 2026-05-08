@@ -1,48 +1,34 @@
 ---
 name: capability-evolution
-description: Use when a task needs controlled capability discovery, validation, and adoption before memory capture or off-hours consolidation. Handles plugins, local skills, and GitHub-sourced capability research with a stable EvoMap-lite workflow.
+description: Use when a task needs controlled capability discovery and adoption across official plugins, local skills, and trusted GitHub projects.
 ---
 
 # Capability Evolution
 
-Use this skill during active work when the current task may need a better capability than the ones already in hand.
+Use this skill during active work when the task may need a better capability than the ones already in hand.
 
-Its job is to discover, validate, and adopt capabilities. It does not capture memory events or rewrite long-term memory.
+It discovers, validates, and adopts capabilities. It does not promote memory by itself.
 
 ## Use This Skill When
 
-- the task should be classified before choosing tools or workflows
-- an official plugin might solve the task better than ad hoc work
-- a new local skill may be needed for the current repo or workflow
-- the assistant should compare multiple capability options instead of choosing one blindly
-- official and local options may be insufficient, unclear, or not obviously fit for the scenario
-- the user wants a controlled self-improvement workflow rather than improvised tool selection
-
-## Do Not Use This Skill When
-
-- the task only needs a normal tool invocation with no capability decision
-- the user only wants to record a preference, correction, or outcome in memory
-- the user wants off-hours Dream Loop cleanup, promotion, rejection, or archival
-- the user wants to rewrite `AGENTS.md` directly instead of following a review path
+- a task needs tool or workflow choice before execution
+- official plugins, local skills, or external projects may improve the route
+- the user questions whether capability search really happened
 
 ## Intent Classification
 
-Classify the task into one intent before capability discovery:
+Classify before discovery:
 
-- `repair`
-  - restore a broken workflow, failed integration, or missing capability
-- `optimize`
-  - improve speed, quality, confidence, or repeatability without changing the task shape
-- `innovate`
-  - add a meaningful new capability or workflow that the current setup does not yet cover
-- `explore`
-  - search for new options only when official and local choices are insufficient or unclear
+- `repair`: broken workflow, failed integration, or missing capability
+- `optimize`: better speed, quality, confidence, or repeatability
+- `innovate`: new capability or workflow
+- `explore`: external search after official and local choices are insufficient
 
-`explore` is not the default. Use it only after official and local options fail to cover the task cleanly.
+`explore` is only for cases where official and local options fail.
 
 ## Discovery Order
 
-Check options in this order and stop at the first sufficient fit:
+Check in order and stop at the first sufficient fit:
 
 1. enabled official plugins
 2. installable official plugins
@@ -51,64 +37,35 @@ Check options in this order and stop at the first sufficient fit:
 
 Do not jump straight to GitHub search if a good official or local option already exists.
 
-## Validation Gate
+## Observable Discovery
 
-Before adopting a new plugin, skill, or GitHub-sourced capability, check:
+Capability discovery must leave evidence, not just a conclusion. For non-trivial decisions, show searched layers, skipped or blocked layers, selected and rejected candidates, and whether GitHub or external search was reached. See `references/discovery-evidence.md` for the full checklist.
 
-- relevance
-  - does it directly fit the current task and intent
-- maintenance recency
-  - is it still being maintained or recently updated
-- source trust
-  - is it official, clearly attributable, or from a high-signal maintainer
-- integration cost
-  - is setup cost justified by the expected gain in accuracy, speed, or coverage
+## Validation And Reporting
 
-If one or more checks fail, do not adopt automatically. Report the tradeoff or fallback choice.
-
-## Reporting Requirements
-
-Report to the user before or while doing either of these:
-
-- adopting a third-party GitHub skill or project
-- making a material global setup change, such as changing core configuration or installing a broad new dependency path
-
-The report can be short, but it must make the change visible.
+Before adoption, check relevance, maintenance recency, source trust, and integration cost versus expected benefit. Report before or while adopting third-party GitHub capabilities or making material global setup changes.
 
 ## Working Loop
 
 1. recall the smallest relevant memory slice
 2. classify the task intent
-3. discover capabilities in the fixed order
-4. validate the best candidate
-5. adopt or invoke the capability only if the validation clears
-6. finish the task work
-7. if the new capability produced a strong explicit route win, preference, or correction, let `capture-memory` land it directly in `ACTIVE.md` or `LEARNINGS.md`; use inbox only if the signal is still inferred or unresolved
-
-## Relationship To Other Skills
-
-- `capture-memory`
-  - use after the task when an outcome, blocker, preference, or workflow win should be recorded in the right memory layer immediately
-- `dream-consolidate`
-  - use later for off-hours candidate generation, promotion, rejection, archive, and audit work
-
-This skill sits before both:
-
-`discover -> validate -> adopt -> land or quarantine -> consolidate`
+3. discover capabilities in the fixed order and keep observable evidence
+4. escalate to GitHub or external project search only when official and local options are insufficient
+5. validate the best candidate
+6. adopt or invoke the capability only if the validation clears
+7. finish the task work
+8. if the new capability produced a high-signal result, hand off the event to `capture-memory`
 
 ## Hard Constraints
 
-- do not rewrite `ACTIVE.md` or `LEARNINGS.md` during active work
+- do not push weak, inferred, or still-competing signal into `ACTIVE.md` or `LEARNINGS.md` during active work
+- explicit strong signal with a clear destination may be handed off to `capture-memory` for direct landing under the current `AGENTS.md` rules
 - do not treat GitHub search as a default step
+- do not claim capability discovery worked unless the searched layers and candidate decisions are visible
 - do not silently import third-party capabilities
 - do not confuse one-off experimentation with stable policy
 - keep capability evolution separate from memory promotion
 
 ## Output Expectations
 
-When this skill influences a decision, the final answer should make these visible when relevant:
-
-- chosen intent
-- discovery path used
-- why a capability was selected or rejected
-- whether the result should later be captured into Dream Loop memory
+When this skill influences a decision, show: intent, discovery path, searched/skipped/blocked layers, selected/rejected candidates, whether GitHub or third-party search was reached, and whether the result should be captured into Dream Loop memory.

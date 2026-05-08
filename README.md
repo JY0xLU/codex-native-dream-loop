@@ -87,9 +87,10 @@ In practice:
 2. If a known route already fits, reuse it first.
 3. If confidence is not high enough, let `capability-evolution` search in order:
    enabled official plugins -> installable official plugins -> local skills -> trusted GitHub projects.
-4. Execute with one chosen route, not multiple competing routes.
-5. Use `capture-memory` to land explicit strong signal directly into `ACTIVE.md` or `LEARNINGS.md`, and only quarantine unresolved inferred signal in `inbox/`.
-6. Use `dream-consolidate` off-hours to keep `ACTIVE.md` hot, strengthen `LEARNINGS.md`, drain unresolved inbox items, and archive stale paths.
+4. Make discovery observable: record searched layers, skipped or blocked layers, selected and rejected candidates, and whether GitHub or external search was reached.
+5. Execute with one chosen route, not multiple competing routes.
+6. Use `capture-memory` to land explicit strong signal directly into `ACTIVE.md` or `LEARNINGS.md`, and only quarantine unresolved inferred signal in `inbox/`.
+7. Use `dream-consolidate` off-hours to keep `ACTIVE.md` hot, strengthen `LEARNINGS.md`, drain unresolved inbox items, and archive stale paths.
 
 The public model stays small even though the internal machinery is still auditable.
 
@@ -100,7 +101,7 @@ This repo currently ships three main skills:
 - `capture-memory`
   - direct landing for explicit strong signal, plus quarantine for unresolved inferred signal
 - `capability-evolution`
-  - route discovery, validation, and capability selection
+  - route discovery, validation, capability selection, and observable search evidence
 - `dream-consolidate`
   - off-hours cleanup, hot-layer refresh, route promotion, and audit reporting
 
@@ -112,10 +113,12 @@ Together, they support a single idea:
 
 This repo assumes a single recurring automation, not a growing stack of separate scheduled agents.
 
-That automation should do four things in one pass:
+That automation should do six things in one pass:
 
 - maintain Dream Loop memory under the dual-layer public model
 - audit the current repo and PR round
+- check whether installed custom skills still match the automation prompt
+- report real reviewer/subagent evidence or explain a low-risk no-review fast path
 - check whether the automation prompt itself has drifted behind the repo
 - recommend the next smallest useful round of improvement
 
@@ -168,7 +171,7 @@ If you want to install it manually:
 4. During work, rely on `ACTIVE.md` first and `LEARNINGS.md` second.
 5. Use `capability-evolution` when you need to search for a better route.
 6. Use `capture-memory` to land explicit strong signal immediately and quarantine only unresolved inferred signal.
-7. Run the single recurring Dream Loop automation off-hours to refresh the hot layer, drain unresolved inbox items, audit the current repo/PR state, check prompt drift, and recommend the next round.
+7. Run the single recurring Dream Loop automation off-hours to refresh the hot layer, drain unresolved inbox items, audit the current repo/PR state, check custom-skill alignment and prompt drift, report real reviewer evidence, and recommend the next round.
 
 ## What “Good” Looks Like
 

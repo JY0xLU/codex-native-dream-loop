@@ -79,6 +79,20 @@ Why this order:
 - local skills are easier to inspect and adapt than external projects
 - GitHub search is powerful, but should be deliberate because it increases trust and integration risk
 
+## Observable Discovery
+
+Capability discovery must be visible enough to audit later. For non-trivial decisions, record:
+
+- which enabled official plugins or tool paths were checked
+- whether an installable official plugin matched the task
+- which local skills were considered
+- whether GitHub or external search was reached, skipped, or blocked
+- which candidate won and why the rejected candidates lost
+
+Do not claim that third-party discovery or cross-review worked from prompt text alone. The run needs evidence.
+
+Escalate to GitHub or external project search when official plugins and local skills do not cover the task well enough and the expected quality, speed, or reliability gain is material.
+
 ## Validation Criteria
 
 A new capability should pass a quick validation gate before adoption.
