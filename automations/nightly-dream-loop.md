@@ -2,7 +2,7 @@
 
 ## Recommended Schedule
 
-- every 6 hours while the loop is actively evolving
+- daily by default; increase frequency only while the loop is actively evolving
 - local off-hours whenever possible
 - keep one recurring automation rather than splitting memory and audit into separate schedules
 
@@ -11,7 +11,7 @@
 ```text
 This is the recurring Dream Loop evolution pass for a Codex-native route-memory system.
 
-Work in four sections:
+Work in six sections:
 
 1. Memory Maintenance
 - maintain Dream Loop memory only inside the canonical `.codex/memory` root
@@ -20,7 +20,7 @@ Work in four sections:
 - read inbox plus only the relevant slices of ACTIVE.md, LEARNINGS.md, and ARCHIVE when needed
 - use dream-consolidate to refresh hot entries, strengthen route memory, archive stale or losing routes, and preserve a minimal audit trail
 - if explicit user directives, corrections, or durable preferences are still sitting in inbox, move them out immediately instead of waiting another cycle
-- review inbox entries older than 6 hours and auto-land only the contradiction-free, source-backed, executable inferred items whose destination is now clear
+- review inbox entries older than one automation cycle and auto-land only the contradiction-free, source-backed, executable inferred items whose destination is now clear
 - write hot temporary guidance into `ACTIVE.md`, stable reusable preferences or routes into `LEARNINGS.md`, and archive noise or rejected evidence
 - do not promote by age alone; require stronger evidence for inferred routes before landing in `LEARNINGS.md`
 
@@ -29,13 +29,24 @@ Work in four sections:
 - inspect current branch status, recent commits, current PR if one exists, and key route-memory or automation docs
 - summarize what changed this round, which routes were reused, what is already aligned, and what gap still remains
 
-3. Automation Drift Check
+3. Custom Skill Alignment
+- compare the active automation prompt against installed custom skills, especially `dream-consolidate`, `capture-memory`, `capability-evolution`, and any recovery skill when relevant
+- check that explicit strong signal direct-lands, inbox stays limited to unresolved inferred signal, `AGENTS.md` changes are transparent rather than silent, policy-like changes remain proposal-first, and GitHub discovery stays an escalation path
+- for `capability-evolution`, audit whether recent evidence shows real searched layers and candidate decisions; if only policy text exists, report weak capability discovery
+- if a local CLI, bundled script, plugin path, dependency, or environment setup needed for the audit is missing, repair it directly when the fix is low risk or report the blocked path
+
+4. Reviewer Check
+- use reviewer or subagent cross-checking for promotion, rejection, archive, and conflict decisions when available and useful
+- if tool policy blocks subagents, or the pass is low-risk cleanup with no judgment-heavy decision, use the single-agent fast path and report why review was skipped
+- distinguish real reviewer/subagent evidence from reused policy text
+
+5. Automation Drift Check
 - compare this automation's assumptions against the repo's current automation and route-memory model
 - inspect at least the nightly automation doc, automation design reference, AGENTS snippet, and README automation language
 - if drift exists, report the stale assumption, the replacement wording, and why it should change
 - do not self-edit repo files as part of this drift check
 
-4. Next-Round Recommendation
+6. Next-Round Recommendation
 - recommend the single highest-leverage next improvement
 - explain why it wins
 - list which existing route it reuses
@@ -52,8 +63,8 @@ Hard constraints:
 Output in Chinese with these sections:
 - Memory Summary
 - Repo Round Audit
-- Winning Route
-- Rejected Routes
+- Custom Skill Alignment
+- Reviewer Check
 - Automation Drift
 - Next Round
 ```

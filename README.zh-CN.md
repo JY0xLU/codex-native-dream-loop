@@ -41,9 +41,10 @@
 2. 如果已有路线明显适用，就先复用。
 3. 如果把握还不够高，再让 `capability-evolution` 按顺序搜索：
    已启用官方插件 -> 可安装官方插件 -> 本地 skills -> 可信 GitHub 项目。
-4. 当前任务只选一条获胜路线执行，不把多条竞争路线同时固化。
-5. 用 `capture-memory` 直接把明确强信号落到 `ACTIVE.md` 或 `LEARNINGS.md`；只有推断型、未验证信号才进 `inbox/`。
-6. 用 `dream-consolidate` 在维护时刷新热层、强化路径记忆、清空未决信号，并把淘汰路线归档。
+4. 让搜索过程可观察：记录查过哪些层、哪些层被跳过或阻塞、哪个候选获胜、哪些候选失败，以及是否真的触达 GitHub / external search。
+5. 当前任务只选一条获胜路线执行，不把多条竞争路线同时固化。
+6. 用 `capture-memory` 直接把明确强信号落到 `ACTIVE.md` 或 `LEARNINGS.md`；只有推断型、未验证信号才进 `inbox/`。
+7. 用 `dream-consolidate` 在维护时刷新热层、强化路径记忆、清空未决信号，并把淘汰路线归档。
 
 ## 核心 Skills
 
@@ -52,7 +53,7 @@
 - `capture-memory`
   - 明确强信号直接落层；推断型未验证信号短暂隔离
 - `capability-evolution`
-  - 路线发现、能力验证、能力选择
+  - 路线发现、能力验证、能力选择，以及可审计的搜索证据
 - `dream-consolidate`
   - 维护 `ACTIVE.md`、强化 `LEARNINGS.md`、处理剩余 inbox、记录审计
 
@@ -64,10 +65,12 @@
 
 这套系统默认只需要一个 recurring automation，而不是越拆越多的定时 agent。
 
-这个 automation 每次运行要同时完成四件事：
+这个 automation 每次运行要同时完成六件事：
 
 - 维护双层 memory
 - 审计当前 repo / PR 轮次
+- 检查已安装 custom skills 是否仍然匹配 automation prompt
+- 报告真实 reviewer / subagent 证据，或说明为什么走低风险单代理快路径
 - 检查 automation 自己的 prompt 有没有落后
 - 给出下一轮最小可执行改进建议
 
@@ -104,7 +107,7 @@ Install the skills from https://github.com/JY0xLU/codex-native-dream-loop and wi
 4. 日常优先读 `ACTIVE.md`，其次才读 `LEARNINGS.md`。
 5. 需要找更优路线时，用 `capability-evolution` 扩大搜索。
 6. 用 `capture-memory` 直接落明确强信号；只把未决信号放进 `inbox/`。
-7. 运行这一个 Dream Loop automation，在维护时刷新热层、处理未决信号、审计 repo/PR，并给出下一轮建议。
+7. 运行这一个 Dream Loop automation，在维护时刷新热层、处理未决信号、审计 repo/PR、检查 custom skill 对齐与 prompt drift、报告真实 reviewer 证据，并给出下一轮建议。
 
 ## 什么叫效果变好了
 

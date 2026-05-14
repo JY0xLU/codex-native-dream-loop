@@ -13,7 +13,7 @@ Everything else is support machinery.
 
 ## Responsibilities
 
-The single automation should cover four responsibilities in one run:
+The single automation should cover six responsibilities in one run:
 
 ### 1. Memory Maintenance
 
@@ -24,7 +24,7 @@ The single automation should cover four responsibilities in one run:
 - preserve rollback context for reversions and superseded routes
 - keep `inbox/` as a short-lived quarantine buffer only for inferred, ambiguous, or still-unresolved signal
 - immediately move any misplaced explicit strong signal out of `inbox/`
-- review inferred inbox items older than one automation cycle, which defaults to 6 hours in the active setup
+- review inferred inbox items older than one automation cycle
 - auto-land only inferred items that are contradiction-free, source-backed, executable, and now have a clear destination
 - route hot temporary guidance into `ACTIVE.md`, stable reusable guidance into `LEARNINGS.md`, and archive noise or rejected evidence
 - never treat age alone as sufficient evidence for promotion
@@ -37,13 +37,26 @@ The single automation should cover four responsibilities in one run:
 - inspect key route-memory and automation docs
 - summarize what the current round already changed and what gap remains
 
-### 3. Automation Drift Check
+### 3. Custom Skill Alignment
+
+- compare the automation prompt against installed custom skills
+- check `dream-consolidate`, `capture-memory`, `capability-evolution`, and recovery skills when relevant
+- verify that capability discovery has observable evidence, not just policy text
+- report missing CLIs, plugin paths, or dependencies and repair low-risk local setup gaps when allowed
+
+### 4. Reviewer Check
+
+- use reviewer or subagent cross-checking for promotion, rejection, archive, and conflict decisions when available and useful
+- report when review is skipped because the pass is low risk, has no judgment-heavy decision, or tool policy blocks subagents
+- distinguish real reviewer evidence from reused prompt or policy language
+
+### 5. Automation Drift Check
 
 - compare the automation prompt against the repo's current model
 - identify stale prompt assumptions
 - recommend wording changes without directly editing repo-tracked files
 
-### 4. Next-Round Recommendation
+### 6. Next-Round Recommendation
 
 - propose the single most valuable next improvement
 - explain the winning route
@@ -76,8 +89,8 @@ The automation should emit one structured Chinese run summary with:
 
 - `Memory Summary`
 - `Repo Round Audit`
-- `Winning Route`
-- `Rejected Routes`
+- `Custom Skill Alignment`
+- `Reviewer Check`
 - `Automation Drift`
 - `Next Round`
 
