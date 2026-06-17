@@ -1,35 +1,139 @@
-# Codex Native Dream Loop
+<p align="center">
+  <img src="assets/hero-logo.png" width="180" alt="Codex Native Dream Loop logo">
+</p>
 
-[English](README.md) | 中文
+<h1 align="center">Codex Native Dream Loop</h1>
 
-![Codex Native Dream Loop logo](assets/hero-logo.png)
+<p align="center">
+  给 Codex 用的路线记忆：留下已经赢过的路径，拒绝薄弱经验，保持召回很小。
+</p>
 
-**一个 Codex-native 的路线记忆治理层：对外只保留两个主层，`ACTIVE.md` 负责当前热规则与热路径，`LEARNINGS.md` 负责可复用的获胜路径。**
+<p align="center">
+  <a href="README.md">English</a> · 中文
+</p>
 
-Codex 经常会忘记哪些路线已经被你验证过。Dream Loop 负责留下有效路线、拒绝薄弱经验，并让每一次夜间 consolidation 都可审计。
+<p align="center">
+  <img src="https://img.shields.io/badge/Codex-Native-1f6feb" alt="Codex Native">
+  <img src="https://img.shields.io/badge/Public%20Model-ACTIVE%20%2B%20LEARNINGS-2563eb" alt="ACTIVE plus LEARNINGS">
+  <img src="https://img.shields.io/badge/Deps-Zero-0f766e" alt="Zero dependencies">
+  <img src="https://img.shields.io/badge/Privacy-Local--First-111827" alt="Local first">
+</p>
 
-`Codex Native Dream Loop` 适合高频 Codex 用户：跨线程、跨 repo、跨日期反复做相似工作，但不想把记忆系统越堆越复杂。它不是通用记忆平台，也不是模型训练框架；目标是让 Codex 下一次更快复用已经赢过的路线。
+Codex 经常会忘记哪条路线已经跑通。Dream Loop 给它一套很小的运行记忆：`ACTIVE.md` 放当前热规则，`LEARNINGS.md` 放可复用路线，任何长期记忆都先过验证门。
+
+它适合高频 Codex 用户：跨线程、跨 repo、跨日期反复做相似工作。它不是通用记忆平台，不是 agent runtime，也不是训练框架。
+
+## 亮点
+
+- **公开模型很小**：日常召回只看 `ACTIVE.md` 和 `LEARNINGS.md`。
+- **复用路线**：强经验沉淀成可执行路径，而不是泛泛心得。
+- **验证门**：长期记忆需要来源证据、拒绝条件和回滚线索。
+- **本地优先**：安装、doctor、nightly report、fixture replay、forget 都是零依赖脚本。
+
+## 快速开始
+
+让 Codex 安装：
+
+```text
+Install the skills from https://github.com/JY0xLU/codex-native-dream-loop and wire them into my Codex setup.
+```
+
+或者先看 dry-run 安装计划：
+
+```bash
+python scripts/install.py --codex-home ~/.codex
+```
+
+确认后再应用：
+
+```bash
+python scripts/install.py --codex-home ~/.codex --apply
+```
+
+发布或安装前检查仓库：
+
+```bash
+python scripts/doctor.py
+```
+
+生成维护报告：
+
+```bash
+python scripts/nightly_report.py --memory-root templates/global/.codex/memory
+```
+
+运行 fixture replay：
+
+```bash
+python scripts/nightly_report.py replay --fixtures-root examples/minimal-global/.codex/memory/fixtures
+```
+
+从默认召回移除一条记忆，同时保留 tombstone 审计：
+
+```bash
+python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memory --reason "user requested removal"
+```
+
+## 目录
+
+- [为什么存在](#为什么存在)
+- [公开模型](#公开模型)
+- [闭环怎么工作](#闭环怎么工作)
+- [验证门](#验证门)
+- [核心 Skills](#核心-skills)
+- [自动化](#自动化)
+- [后台机制](#后台机制)
+- [手动安装](#手动安装)
 
 ## 为什么存在
 
-很多 agent 不是不会做事，而是：
+很多 agent 不是不会做事，而是路线会漂移：
 
-- 反复从零开始
-- 有用经验散在旧对话里
+- 有效路径被反复从零发现
+- 旧经验散在长对话里
 - 临时规则留得太久
 - plugin 和 skill 找得太晚
 - 记忆层越加越多，却没有更清楚
 
-这个仓库就是为了让下一次行动比上一次更省、更快、更稳。
+这个仓库的目标是让下一次行动比上一次更省、更快、更稳。
+
+它只把两个文件放到日常心智模型里：
+
+- `ACTIVE.md`
+  - 现在就应该影响行为的热规则
+- `LEARNINGS.md`
+  - 已验证、可跨任务复用的路线记忆
+
+其他内容都留在后台做审计和回滚。
 
 ## 公开模型
 
-对外只保留两层：
+对外只保留两层。
 
-- `ACTIVE.md`
-  - 当前立刻影响行为的热规则和热路径
-- `LEARNINGS.md`
-  - 已验证、可跨任务复用的路径记忆
+### `ACTIVE.md`
+
+`ACTIVE.md` 是热层。
+
+适合放：
+
+- 临时但重要的规则
+- 当前热路线
+- 阶段性、应该立刻影响下一次任务的行为
+
+如果一条内容不再影响近期决策，就不应该继续留在这里。
+
+### `LEARNINGS.md`
+
+`LEARNINGS.md` 是路线记忆层。
+
+它应该像一套路由表，而不是心得堆。好的 entry 至少回答：
+
+- 适合哪类任务
+- 应该先走哪条路
+- 为什么这条路赢
+- 最近何时验证过
+- 有什么证据
+- 什么情况下应该回退或避免
 
 ## 闭环怎么工作
 
@@ -37,16 +141,15 @@ Codex 经常会忘记哪些路线已经被你验证过。Dream Loop 负责留下
 
 `recall -> choose -> search if needed -> execute -> land or quarantine -> consolidate`
 
-落到实际步骤就是：
+落到实际步骤：
 
 1. 先从 `ACTIVE.md` 和 `LEARNINGS.md` 里只取最小相关片段。
 2. 如果已有路线明显适用，就先复用。
-3. 如果把握还不够高，再让 `capability-evolution` 按顺序搜索：
-   已启用官方插件 -> 可安装官方插件 -> 本地 skills -> 可信 GitHub 项目。
-4. 让搜索过程可观察：记录查过哪些层、哪些层被跳过或阻塞、哪个候选获胜、哪些候选失败，以及是否真的触达 GitHub / external search。
+3. 如果把握还不够高，再让 `capability-evolution` 按顺序搜索：已启用官方插件 -> 可安装官方插件 -> 本地 skills -> 可信 GitHub 项目。
+4. 让搜索过程可观察：记录查过哪些层、哪些层被跳过或阻塞、哪个候选获胜、哪些候选失败，以及是否真的触达外部搜索。
 5. 当前任务只选一条获胜路线执行，不把多条竞争路线同时固化。
 6. 用 `capture-memory` 直接把明确强信号落到 `ACTIVE.md` 或 `LEARNINGS.md`；只有推断型、未验证信号才进 `inbox/`。
-7. 用 `dream-consolidate` 在维护时刷新热层、强化路径记忆、清空未决信号，并把淘汰路线归档。
+7. 用 `dream-consolidate` 在维护时刷新热层、强化路线记忆、清空未决信号，并把淘汰路线归档。
 
 ## 验证门
 
@@ -92,7 +195,7 @@ Dream Loop 的改进重点不是增加更多公开层，而是让路线选择更
 - 维护双层 memory
 - 审计当前 repo / PR 轮次
 - 检查已安装 custom skills 是否仍然匹配 automation prompt
-- 报告真实 reviewer / subagent 证据，或说明为什么走低风险单代理快路径
+- 报告真实 reviewer / subagent 证据，或说明为什么走低风险单代理快路
 - 检查 automation 自己的 prompt 有没有落后
 - 给出下一轮最小可执行改进建议
 
@@ -111,68 +214,22 @@ Dream Loop 的改进重点不是增加更多公开层，而是让路线选择更
 
 `inbox/` 不是第三个公开记忆层。明确强信号不应该长期停在里面。
 
-## 快速开始
-
-如果你想图省事，最简单的方式就是把这个仓库交给 Codex，让它帮你接到自己的 Codex home 里。
-
-例如：
-
-```text
-Install the skills from https://github.com/JY0xLU/codex-native-dream-loop and wire them into my Codex setup.
-```
-
-如果你想手动安装：
+## 手动安装
 
 1. 把 `skills/capture-memory/`、`skills/capability-evolution/` 和 `skills/dream-consolidate/` 复制到 `$CODEX_HOME/skills/` 或 `~/.codex/skills/`。
 2. 把 `templates/global/` 复制到你的 Codex home 作为起始结构。
 3. 把 `AGENTS.md` 片段接入你的全局入口或项目入口。
-4. 日常优先读 `ACTIVE.md`，其次才读 `LEARNINGS.md`。
+4. 日常优先读 `ACTIVE.md`，其次读 `LEARNINGS.md`。
 5. 需要找更优路线时，用 `capability-evolution` 扩大搜索。
 6. 用 `capture-memory` 直接落明确强信号；只把未决信号放进 `inbox/`。
-7. 运行这一个 Dream Loop automation，在维护时刷新热层、处理未决信号、审计 repo/PR、检查 custom skill 对齐与 prompt drift、报告真实 reviewer 证据，并给出下一轮建议。
+7. 运行单一 Dream Loop automation，在维护时刷新热层、处理未决信号、审计 repo/PR、检查 custom skill 对齐与 prompt drift、报告真实 reviewer 证据，并给出下一轮建议。
 
 如果你的 Codex 版本支持本地插件注册，仓库也包含 `.codex-plugin/plugin.json`。插件入口是推荐方向，但手动安装路径仍应保留作为回退。
 
-手动安装可以先 dry-run：
-
-```bash
-python scripts/install.py --codex-home ~/.codex
-```
-
-确认计划复制的文件后，再显式执行：
-
-```bash
-python scripts/install.py --codex-home ~/.codex --apply
-```
-
-安装或发布前可以先跑一次结构检查：
-
-```bash
-python scripts/doctor.py
-```
-
-也可以从某个 Dream Loop memory root 生成一份紧凑维护报告：
-
-```bash
-python scripts/nightly_report.py --memory-root templates/global/.codex/memory
-```
-
-也可以运行轻量 fixture replay 检查：
-
-```bash
-python scripts/nightly_report.py replay --fixtures-root examples/minimal-global/.codex/memory/fixtures
-```
-
-也可以生成静态 HTML 报告：
+静态 HTML 报告：
 
 ```bash
 python scripts/nightly_report.py --memory-root templates/global/.codex/memory --format html --output report.html
-```
-
-如果需要把某条记忆从默认召回中移除，同时保留 tombstone 审计：
-
-```bash
-python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memory --reason "user requested removal"
 ```
 
 ## 什么叫效果变好了
@@ -180,8 +237,8 @@ python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memor
 这套系统真正跑顺之后，会有这些变化：
 
 - 新任务不再频繁从零开始
-- `ACTIVE.md` 会一直很短，而且一眼能看出现在为什么重要
-- `LEARNINGS.md` 更像路径库，不像心得堆
+- `ACTIVE.md` 会一直很短，而且一眼能看出现在哪些规则重要
+- `LEARNINGS.md` 更像路线库，不像心得堆
 - 明确纠正和稳定偏好会很快落层，而不是在 `inbox/` 里拖着
 - plugin 和 skill 会在需要时被主动找出来
 - 失败或淘汰路线会被归档，而不是静默消失
