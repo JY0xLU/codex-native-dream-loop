@@ -204,10 +204,11 @@ installable plugin exposed through the marketplace file.
 
 ## Status
 
-Dream Loop is early but usable: plugin installation, manual installation,
-doctor checks, nightly reports, fixture replay, and forget/audit flow are in
-place. The next work is more fixture coverage, sharper report output, and
-clearer examples for `ACTIVE.md`, `LEARNINGS.md`, and `inbox/` decisions.
+Dream Loop's core loop is complete: plugin installation, manual installation,
+doctor checks, maintenance reports, fixture replay, and forget/audit flow are
+in place. Future work is refinement: more fixture coverage, sharper report
+output, and clearer examples for `ACTIVE.md`, `LEARNINGS.md`, and `inbox/`
+decisions.
 
 ## License
 

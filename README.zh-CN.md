@@ -189,7 +189,7 @@ python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memor
 
 ## 状态
 
-Dream Loop 还早，但已经可用：plugin 安装、手动安装、仓库体检、维护报告、样例回放、遗忘和审计流程都已经在位。下一步会继续补回放覆盖、提升报告可读性，并补清 `ACTIVE.md`、`LEARNINGS.md`、`inbox/` 的判断示例。
+Dream Loop 的核心闭环已经完成：plugin 安装、手动安装、仓库体检、维护报告、样例回放、遗忘和审计流程都已经在位。后续工作属于增强项：补更多回放覆盖、提升报告可读性，并补清 `ACTIVE.md`、`LEARNINGS.md`、`inbox/` 的判断示例。
 
 ## License
 
