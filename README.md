@@ -9,11 +9,13 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Codex-Native-1f6feb" alt="Codex Native">
-  <img src="https://img.shields.io/badge/Plugin-Installable-7c3aed" alt="Installable plugin">
-  <img src="https://img.shields.io/badge/Public%20Model-ACTIVE%20%2B%20LEARNINGS-2563eb" alt="ACTIVE plus LEARNINGS">
-  <img src="https://img.shields.io/badge/Runtime-Zero%20Server-0f766e" alt="Zero runtime server">
-  <img src="https://img.shields.io/badge/Privacy-Local--First-111827" alt="Local first">
+  <a href="https://github.com/JY0xLU/codex-native-dream-loop/stargazers"><img src="https://img.shields.io/github/stars/JY0xLU/codex-native-dream-loop?style=flat&logo=github&label=Stars" alt="GitHub stars"></a>
+  <a href="https://github.com/JY0xLU/codex-native-dream-loop/forks"><img src="https://img.shields.io/github/forks/JY0xLU/codex-native-dream-loop?style=flat&logo=github&label=Forks" alt="GitHub forks"></a>
+  <img src="https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/deps-zero-0f766e" alt="Zero runtime dependencies">
+  <img src="https://img.shields.io/badge/privacy-local--only-14b8a6" alt="Local-only privacy">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2563eb" alt="MIT license"></a>
+  <img src="https://img.shields.io/github/last-commit/JY0xLU/codex-native-dream-loop?label=last%20commit" alt="Last commit">
 </p>
 
 <p align="center">
