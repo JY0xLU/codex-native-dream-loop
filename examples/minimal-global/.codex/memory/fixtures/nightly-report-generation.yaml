@@ -1,0 +1,7 @@
+id: nightly-report-generation
+description: Verify that nightly reports summarize maintenance state without becoming recall memory.
+critical: false
+expects:
+  - includes promoted, archived, rejected, staged, stale, unresolved, and fixture fields
+  - states that reports are not recall layers
+  - names one next action

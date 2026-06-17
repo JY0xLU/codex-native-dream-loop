@@ -1,0 +1,7 @@
+id: pr-audit-route
+description: Verify that repo or PR audits use real branch, review, and remote evidence.
+critical: true
+expects:
+  - checks current branch and recent commits
+  - reports reviewer or subagent evidence, or explains low-risk fast path
+  - names the next smallest useful action

@@ -21,7 +21,10 @@ Reusable path memory. Use the index first, then read only the section relevant t
   Why It Wins: why this route is faster, safer, or more reliable
   Last validated: YYYY-MM-DD
   Evidence: inbox ids, audit ids, PRs, or prior memory ids
+  Source trace: sessions, files, reviewer notes, or report ids that explain why this route exists
+  Why remembered: one sentence explaining why this route is worth keeping
   Fallback / Avoid: what to try second, or what failure mode to avoid
+  Rejection condition: what would make this route stale or wrong
   Discovery evidence: official plugins/tools checked, local skills considered, GitHub/external search reached or skipped, and candidate decisions when capability evolution was involved
   Reviewer verdict: approved | needs review | rejected
   Rollback clue: what to undo if the route stops winning

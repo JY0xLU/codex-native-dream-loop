@@ -1,4 +1,4 @@
 interface:
   display_name: "Capture Memory"
-  short_description: "Record lightweight event observations into the Dream Loop inbox during active work."
-  default_prompt: "Use $capture-memory to record a single scoped event into the Dream Loop inbox without consolidating or promoting memory."
+  short_description: "Land explicit strong signal into ACTIVE or LEARNINGS, and quarantine unresolved signal in the Dream Loop inbox."
+  default_prompt: "Use $capture-memory to direct-land explicit strong signal into ACTIVE.md or LEARNINGS.md when the destination is clear, and use inbox only for unresolved inferred signal."

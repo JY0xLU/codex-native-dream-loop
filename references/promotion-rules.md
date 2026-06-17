@@ -43,7 +43,20 @@ A good `LEARNINGS.md` entry should capture:
 - why it wins
 - last validated time
 - evidence
+- source trace
+- why remembered
 - fallback or avoid notes
+- rejection condition
+
+Durable promotion should pass the validation gate:
+
+- source evidence
+- outcome link
+- blast radius
+- rejection condition
+- rollback path
+
+If a candidate is useful but fails one of these checks, stage it for review or keep it in `inbox/` instead of promoting it by confidence alone.
 
 ## Keep In `inbox/`
 
@@ -71,5 +84,18 @@ Every promotion or archive decision should preserve:
 - source entry id
 - target file
 - why the route won or lost
+- accepted or rejected alternatives when the choice is non-obvious
 - rollback clue
 - reviewer path when reviewer or subagent review was used
+
+## Control Actions
+
+Use archive instead of silent deletion. Use forget only when the user explicitly asks to remove an entry from default recall.
+
+Suggested outcomes:
+
+- `adopt`: bounded patch lands in `ACTIVE.md` or `LEARNINGS.md`
+- `stage`: candidate waits for reviewer or gate evidence
+- `reject`: candidate failed a gate check and moves to `rejected/`
+- `archive`: stale, superseded, or wrong-scope item moves to `ARCHIVE/`
+- `forget`: user-requested removal from default recall, with a minimal tombstone in audit history

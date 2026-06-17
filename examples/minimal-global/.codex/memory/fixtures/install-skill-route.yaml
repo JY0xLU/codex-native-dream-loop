@@ -1,0 +1,7 @@
+id: install-skill-route
+description: Verify that manual skill installation follows the supported Dream Loop order.
+critical: true
+expects:
+  - copies skills before templates
+  - merges AGENTS snippet instead of silently replacing user policy
+  - runs doctor or equivalent structural verification

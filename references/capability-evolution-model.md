@@ -119,6 +119,18 @@ A new capability should pass a quick validation gate before adoption.
 
 If the candidate fails the gate, reject it or keep it at reference level.
 
+Use this compact rubric in audit output:
+
+| Check | Verdict evidence |
+|---|---|
+| Relevance | Which task or intent it directly improves |
+| Source trust | Official, local inspected, or trusted external source |
+| Maintenance | Recent enough or stable enough to rely on |
+| Integration cost | Setup/runtime burden is justified |
+| Expected gain | Clear speed, quality, reliability, or coverage improvement |
+
+If a checked item has only policy text and no observed command, file, repo, or behavior evidence, mark it `weak` rather than treating it as adopted.
+
 ## GitHub Trust Heuristics
 
 When GitHub discovery is needed, prefer:
