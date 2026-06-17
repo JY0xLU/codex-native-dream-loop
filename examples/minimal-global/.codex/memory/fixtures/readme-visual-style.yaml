@@ -1,0 +1,7 @@
+id: readme-visual-style
+description: Verify that README refreshes reuse a proven structure instead of rewriting from scratch.
+critical: true
+expects:
+  - preserves project positioning
+  - keeps internal memory layers out of the first screen
+  - includes source trace before durable promotion

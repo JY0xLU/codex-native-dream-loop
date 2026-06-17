@@ -44,6 +44,8 @@ Off-hours and maintenance:
 2. Use `dream-consolidate` within that automation, or during manual maintenance, for hot-layer refresh, route promotion, archive decisions, and audit support
 3. Prefer subagent review for promotion, rejection, archive, and conflict decisions
 4. Keep low-risk cleanup on a single-agent fast path when no judgment call is needed
+5. Before durable promotion, run a lightweight validation gate: source evidence, outcome link, blast radius, rejection condition, and rollback path
+6. For judgment-heavy changes, stage a proposal before editing public memory; treat staging as an audit checkpoint, not as another daily memory layer
 
 Promotion rules:
 1. Write explicit hot temporary directives, corrections, or routes directly into `~/.codex/memory/ACTIVE.md`

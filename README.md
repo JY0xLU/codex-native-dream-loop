@@ -4,9 +4,11 @@
 
 ![Codex Native Dream Loop logo](assets/hero-logo.png)
 
-**A Codex-native self-improvement loop with a simple public model: `ACTIVE.md` for what is hot now, `LEARNINGS.md` for reusable winning routes.**
+**A Codex-native route memory governance layer with a simple public model: `ACTIVE.md` for what is hot now, `LEARNINGS.md` for reusable winning routes.**
 
-Codex Native Dream Loop is for people who want Codex to get stronger through repeated work without turning memory into a maze. The goal is not to expose more layers. The goal is to help Codex reuse the best path faster the next time.
+Codex forgets which routes you already proved. Dream Loop keeps the useful routes visible, rejects weak lessons, and makes each night of consolidation auditable.
+
+It is for high-frequency Codex users who repeat workflows across threads, repos, and days. It is not a general memory platform and not a model-training framework. The goal is to help Codex start from the winning route next time without turning memory into a maze.
 
 ![Codex Native](https://img.shields.io/badge/Codex-Native-1f6feb)
 ![Self-Improving](https://img.shields.io/badge/Self--Improving-3fb950)
@@ -16,10 +18,10 @@ Codex Native Dream Loop is for people who want Codex to get stronger through rep
 
 **Quick Navigation**
 
-[Why It Exists](#why-it-exists) | [Public Model](#public-model) | [How The Loop Works](#how-the-loop-works) | [Core Skills](#core-skills) | [Automation](#automation) | [Internal Mechanics](#internal-mechanics) | [Quick Start](#quick-start)
+[Why It Exists](#why-it-exists) | [Public Model](#public-model) | [How The Loop Works](#how-the-loop-works) | [Validation Gate](#validation-gate) | [Core Skills](#core-skills) | [Automation](#automation) | [Internal Mechanics](#internal-mechanics) | [Quick Start](#quick-start)
 
 > Most agents do not really improve. They either keep re-solving the same problem, or they bury themselves under too much memory structure.
-> Codex Native Dream Loop keeps the public model small, reuses good routes, and hides the bookkeeping behind the scenes.
+> Codex Native Dream Loop keeps the public model small, validates durable changes, and hides the bookkeeping behind the scenes.
 
 ## Why It Exists
 
@@ -94,6 +96,28 @@ In practice:
 
 The public model stays small even though the internal machinery is still auditable.
 
+## Validation Gate
+
+Dream Loop borrows the discipline of validation-gated skill improvement without importing a heavy training framework.
+
+Before a route, preference, or procedure becomes durable memory, the maintenance pass should ask:
+
+- what real task, correction, repo audit, or repeated failure supports it
+- whether the candidate would have changed the previous outcome for the better
+- whether a smaller hot `ACTIVE.md` entry is safer than a durable `LEARNINGS.md` route
+- what evidence would reject it, retire it, or send it back to quarantine
+- how to roll it back if it later proves wrong
+
+For judgment-heavy changes, `dream-consolidate` should stage a proposal first: accepted edits, rejected candidates, evidence, reviewer or subagent notes, and the exact target layer. Staging is an audit artifact, not a third public memory layer. The day-to-day model remains `ACTIVE.md` and `LEARNINGS.md`.
+
+This keeps Dream Loop closer to a route-memory operating system than a research optimizer: lightweight enough to read, strict enough to avoid self-reinforcing bad lessons.
+
+## Quality Without Bloat
+
+Dream Loop improves by making route choices sharper, not by adding more public layers. Reuse known routes first, require observable discovery only when confidence is low, keep validation evidence compact, and reject candidates that need a large framework to justify a small memory change.
+
+Implementation rounds can use the [Trellis workflow](references/trellis-workflow.md): keep one trunk objective, split independent branches for docs/skills/automation/verification, use subagents on side branches, and land only after the gate has evidence.
+
 ## Core Skills
 
 This repo currently ships three main skills:
@@ -144,12 +168,17 @@ These exist to support rollback and review. They are not meant to become extra p
 - `templates/`
   - a global `AGENTS.md` starter snippet
   - a minimal memory skeleton centered on `ACTIVE.md` and `LEARNINGS.md`
+- `.codex-plugin/`
+  - a Codex plugin manifest for direct plugin registration
 - `skills/`
   - the three skills that run the loop
 - `automations/`
   - the single recurring automation prompt for memory maintenance, repo round audit, drift check, and next-round recommendations
 - `references/`
   - concise design notes for route memory, promotion, and automation behavior
+  - a research adoption trace showing which external projects influenced which mechanisms
+- `scripts/`
+  - dependency-free local checks for repo structure and install readiness
 - `examples/`
   - a minimal global example using the dual-layer public model
 
@@ -172,6 +201,50 @@ If you want to install it manually:
 5. Use `capability-evolution` when you need to search for a better route.
 6. Use `capture-memory` to land explicit strong signal immediately and quarantine only unresolved inferred signal.
 7. Run the single recurring Dream Loop automation off-hours to refresh the hot layer, drain unresolved inbox items, audit the current repo/PR state, check custom-skill alignment and prompt drift, report real reviewer evidence, and recommend the next round.
+
+If your Codex build supports local plugin registration, this repo also includes `.codex-plugin/plugin.json`. Keep the manual path as the fallback while plugin packaging continues to evolve.
+
+For a dry-run manual install:
+
+```bash
+python scripts/install.py --codex-home ~/.codex
+```
+
+To copy files after reviewing the planned actions:
+
+```bash
+python scripts/install.py --codex-home ~/.codex --apply
+```
+
+To verify the repo structure before installing or publishing:
+
+```bash
+python scripts/doctor.py
+```
+
+To generate a compact maintenance report from a Dream Loop memory root:
+
+```bash
+python scripts/nightly_report.py --memory-root templates/global/.codex/memory
+```
+
+To run the lightweight fixture replay check:
+
+```bash
+python scripts/nightly_report.py replay --fixtures-root examples/minimal-global/.codex/memory/fixtures
+```
+
+For a static HTML report:
+
+```bash
+python scripts/nightly_report.py --memory-root templates/global/.codex/memory --format html --output report.html
+```
+
+To remove an entry from default recall while preserving a tombstone audit:
+
+```bash
+python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memory --reason "user requested removal"
+```
 
 ## What “Good” Looks Like
 

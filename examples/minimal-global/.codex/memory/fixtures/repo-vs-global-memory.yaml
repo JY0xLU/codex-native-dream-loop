@@ -1,0 +1,7 @@
+id: repo-vs-global-memory
+description: Verify that route memory lands in the narrowest correct scope.
+critical: true
+expects:
+  - classifies global, repo, or thread scope before reading memory
+  - avoids writing repo-specific rules into global memory
+  - preserves source trace for promotions

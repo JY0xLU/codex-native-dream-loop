@@ -33,3 +33,35 @@ Use these examples to verify that the two Dream Loop skills stay separate and me
 3. "Remember this preference but do not reorganize memory yet."
 4. "While we are still debugging, just record the signal."
 5. "Add one raw observation to today's inbox file."
+
+## Should Trigger `capability-evolution`
+
+1. "Find the right plugin or skill before we build this workflow."
+2. "Check whether an official tool already covers this before using a GitHub project."
+3. "Compare available Codex plugins, local skills, and external repos for this task."
+4. "Show which capability candidates were checked and why one won."
+5. "This current route works but feels slow; find a better capability path."
+
+## Should Not Trigger `capability-evolution`
+
+1. "Run the known install command from our existing route memory."
+2. "Use the already-selected plugin to finish this task."
+3. "Capture this successful route after the work is done."
+4. "Clean up old memory entries without changing capability choices."
+5. "Summarize the repo README without adopting new tools."
+
+## Observable Evidence Evals
+
+These examples test whether the agent reports evidence instead of policy text.
+
+### Strong
+
+1. "Checked enabled plugins: GitHub available but insufficient for screenshots; checked local skills: playwright selected; skipped GitHub search because local browser testing covers the task."
+2. "Compared `capture-memory` and `dream-consolidate`; selected `capture-memory` because this is an active explicit correction, rejected `dream-consolidate` because no maintenance pass was requested."
+3. "Subagent reviewer inspected `LEARNINGS.md` and found contradiction-free source trace; promotion passed with rollback note."
+
+### Weak
+
+1. "I followed the capability-evolution policy" with no checked tools, files, candidates, or skipped layers.
+2. "Reviewer check passed" when no reviewer, subagent, command output, or concrete evidence is named.
+3. "GitHub discovery was considered" without naming whether it was reached, skipped, blocked, or unnecessary.
