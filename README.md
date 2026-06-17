@@ -98,7 +98,7 @@ The public model stays small even though the internal machinery is still auditab
 
 ## Validation Gate
 
-Dream Loop borrows the discipline of validation-gated skill improvement without importing a heavy training framework.
+Dream Loop validates durable memory changes without importing a heavy optimization framework.
 
 Before a route, preference, or procedure becomes durable memory, the maintenance pass should ask:
 
@@ -116,7 +116,7 @@ This keeps Dream Loop closer to a route-memory operating system than a research 
 
 Dream Loop improves by making route choices sharper, not by adding more public layers. Reuse known routes first, require observable discovery only when confidence is low, keep validation evidence compact, and reject candidates that need a large framework to justify a small memory change.
 
-Implementation rounds can use the [Trellis workflow](references/trellis-workflow.md): keep one trunk objective, split independent branches for docs/skills/automation/verification, use subagents on side branches, and land only after the gate has evidence.
+Implementation rounds should keep one clear objective, split independent work where it reduces risk, and land only after the gate has evidence.
 
 ## Core Skills
 
@@ -176,7 +176,6 @@ These exist to support rollback and review. They are not meant to become extra p
   - the single recurring automation prompt for memory maintenance, repo round audit, drift check, and next-round recommendations
 - `references/`
   - concise design notes for route memory, promotion, and automation behavior
-  - a research adoption trace showing which external projects influenced which mechanisms
 - `scripts/`
   - dependency-free local checks for repo structure and install readiness
 - `examples/`

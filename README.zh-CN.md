@@ -50,7 +50,7 @@ Codex 经常会忘记哪些路线已经被你验证过。Dream Loop 负责留下
 
 ## 验证门
 
-Dream Loop 可以借鉴 SkillOpt 这类系统的严谨性，但不把自己变成重型训练框架。
+Dream Loop 会验证长期记忆改动，但不把自己变成重型优化框架。
 
 在一条路线、偏好或流程进入长期记忆之前，维护 pass 至少要回答：
 
@@ -66,7 +66,7 @@ Dream Loop 可以借鉴 SkillOpt 这类系统的严谨性，但不把自己变�
 
 Dream Loop 的改进重点不是增加更多公开层，而是让路线选择更准：能复用已知路线就先复用，把握不足时才要求可观察 discovery，验证证据保持短小，凡是需要大框架才能证明的小记忆改动都应该被拒绝或暂缓。
 
-实现改进时可以使用 [Trellis workflow](references/trellis-workflow.md)：保留一个 trunk 目标，把 docs / skills / automation / verification 拆成互不踩文件的 branches，让 subagent 处理旁路检查或独立编辑，最后只让通过 gate 的叶子落地。
+实现改进时应保留一个清晰目标，把互不影响的工作拆开处理，最后只让通过 gate 的改动落地。
 
 ## 核心 Skills
 
@@ -132,8 +132,6 @@ Install the skills from https://github.com/JY0xLU/codex-native-dream-loop and wi
 7. 运行这一个 Dream Loop automation，在维护时刷新热层、处理未决信号、审计 repo/PR、检查 custom skill 对齐与 prompt drift、报告真实 reviewer 证据，并给出下一轮建议。
 
 如果你的 Codex 版本支持本地插件注册，仓库也包含 `.codex-plugin/plugin.json`。插件入口是推荐方向，但手动安装路径仍应保留作为回退。
-
-参考项目的借鉴关系记录在 `references/research-adoption-trace.md`：哪些机制来自 SkillOpt-Sleep、memory-bank、agentmemory、Graphiti 等，哪些复杂度被明确拒绝。
 
 手动安装可以先 dry-run：
 
