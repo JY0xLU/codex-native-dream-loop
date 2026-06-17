@@ -1,0 +1,20 @@
+{
+  "name": "codex-native-dream-loop",
+  "interface": {
+    "displayName": "Codex Native Dream Loop"
+  },
+  "plugins": [
+    {
+      "name": "codex-native-dream-loop",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex-native-dream-loop"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
