@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capture Memory"
+  short_description: "Land explicit strong signal into ACTIVE or LEARNINGS, and quarantine unresolved signal in the Dream Loop inbox."
+  default_prompt: "Use $capture-memory to direct-land explicit strong signal into ACTIVE.md or LEARNINGS.md when the destination is clear, and use inbox only for unresolved inferred signal."

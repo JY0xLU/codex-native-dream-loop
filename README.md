@@ -1,275 +1,506 @@
-<p align="center">
-  <img src="assets/hero-logo.png" width="180" alt="Codex Native Dream Loop logo">
-</p>
+<div align="center" id="readme-top">
 
-<h1 align="center">Codex Native Dream Loop</h1>
+<img src="assets/hero-logo.png" width="220" alt="Codex Native Dream Loop logo">
 
-<p align="center">
-  Route memory for Codex: keep the winning path visible, reject weak lessons, and keep recall small.
-</p>
+# Codex Native Dream Loop
 
-<p align="center">
-  <a href="README.zh-CN.md">中文</a> · English
-</p>
+**Local-first route memory for Codex.**
+
+Two-file recall surface, audited promotion workflow, and a Codex plugin path for keeping the winning route visible across threads.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Codex-Native-1f6feb" alt="Codex Native">
-  <img src="https://img.shields.io/badge/Public%20Model-ACTIVE%20%2B%20LEARNINGS-2563eb" alt="ACTIVE plus LEARNINGS">
-  <img src="https://img.shields.io/badge/Deps-Zero-0f766e" alt="Zero dependencies">
-  <img src="https://img.shields.io/badge/Privacy-Local--First-111827" alt="Local first">
+  <img src="https://img.shields.io/badge/Codex-Native-1f6feb?style=for-the-badge" alt="Codex Native">
+  <img src="https://img.shields.io/badge/Public_Model-ACTIVE_%2B_LEARNINGS-2563eb?style=for-the-badge" alt="ACTIVE plus LEARNINGS">
+  <img src="https://img.shields.io/badge/Local_First-Zero_Runtime_Server-0f766e?style=for-the-badge" alt="Local first">
+  <img src="https://img.shields.io/badge/Plugin-Installable-7c3aed?style=for-the-badge" alt="Installable plugin">
+  <img src="https://img.shields.io/badge/License-MIT-111827?style=for-the-badge" alt="MIT license">
 </p>
 
-Codex often forgets which route already worked. Dream Loop gives it a small operating memory: `ACTIVE.md` for the hot rule now, `LEARNINGS.md` for reusable routes, and a validation gate before anything becomes durable.
+[Quick Start](#quick-start) · [Plugin Installation](#plugin-installation) · [Architecture](#architecture-at-a-glance) · [中文](README.zh-CN.md)
 
-It is built for people who use Codex across many threads, repos, and days. It is not a general memory platform, an agent runtime, or a training framework.
+</div>
 
-## Highlights
+<br>
 
-- **Small public model**: daily recall stays limited to `ACTIVE.md` and `LEARNINGS.md`.
-- **Route reuse**: strong lessons become reusable paths, not vague notes.
-- **Validation gate**: durable memory changes need source evidence, rejection conditions, and rollback clues.
-- **Local-first tooling**: install, doctor, nightly report, fixture replay, and forget commands are dependency-free.
+<details>
+  <summary><kbd>Table of Contents</kbd></summary>
+
+<br>
+
+- [Codex Native Dream Loop 0.1](#codex-native-dream-loop-01)
+- [What It Is](#what-it-is)
+- [Why It Exists](#why-it-exists)
+- [Design Choices](#design-choices)
+- [Quick Start](#quick-start)
+- [Plugin Installation](#plugin-installation)
+- [Manual File-Copy Installation](#manual-file-copy-installation)
+- [Architecture At A Glance](#architecture-at-a-glance)
+- [Memory Layout](#memory-layout)
+- [Core Skills](#core-skills)
+- [Promotion Gate](#promotion-gate)
+- [Maintenance Commands](#maintenance-commands)
+- [Project Structure](#project-structure)
+- [Roadmap](#roadmap)
+
+<br>
+
+</details>
+
+## Codex Native Dream Loop 0.1
+
+> [!IMPORTANT]
+>
+> Dream Loop is for people who run Codex repeatedly across threads,
+> repositories, and days. It keeps memory small enough to read, strict enough
+> to audit, and practical enough to install as a Codex plugin.
+>
+> The public model is intentionally tiny: `ACTIVE.md` is the hot layer, and
+> `LEARNINGS.md` is the reusable route library. Everything else supports
+> review, staging, rejection, replay, reporting, and rollback.
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
+
+## What It Is
+
+Codex can preserve conversation context but still lose the route that actually
+worked. Dream Loop gives Codex a disciplined operating memory:
+
+<table>
+<tr>
+<td width="33%" valign="top">
+<strong>ACTIVE.md</strong><br><br>
+The hot layer. Short-lived directives, current repository routes, active
+corrections, and anything that should affect the next task immediately.
+</td>
+<td width="33%" valign="top">
+<strong>LEARNINGS.md</strong><br><br>
+The route library. Durable, reusable paths with evidence, scope, failure
+conditions, and a reason to be tried first.
+</td>
+<td width="33%" valign="top">
+<strong>Promotion Gate</strong><br><br>
+The control point before a lesson becomes durable. It checks source evidence,
+outcome impact, blast radius, rejection condition, and rollback clue.
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<strong>Staging Area</strong><br><br>
+Judgment-heavy proposals can wait in <code>staged/</code> with accepted edits,
+rejected candidates, reviewer notes, and target layer.
+</td>
+<td width="33%" valign="top">
+<strong>Replay Fixtures</strong><br><br>
+Small YAML fixtures keep the loop honest without turning the repository into
+a benchmark framework.
+</td>
+<td width="33%" valign="top">
+<strong>Maintenance Reports</strong><br><br>
+Reports summarize unresolved inbox items, staged proposals, rejected routes,
+stale active entries, fixtures, and source-trace coverage.
+</td>
+</tr>
+</table>
+
+It is not a general memory database, not an agent runtime, and not a model
+training framework. It is a compact governance layer for Codex route memory.
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
+
+## Why It Exists
+
+The recurring failure mode in long-running Codex work is path drift:
+
+- the same setup, debug, or publishing route is rediscovered from scratch
+- useful corrections stay buried in long conversations
+- temporary rules stay hot after they stop mattering
+- plugin and skill discovery happens too late
+- memory grows faster than the operator can audit it
+
+Dream Loop keeps the recall surface small while making the supporting machinery
+auditable. The next run should begin from the best known route, not another
+blank reasoning pass.
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
+
+## Design Choices
+
+<table>
+<tr>
+<th width="30%">Choice</th>
+<th width="35%">Dream Loop</th>
+<th width="35%">Avoids</th>
+</tr>
+<tr>
+<td><strong>Public memory model</strong></td>
+<td>Two readable files: <code>ACTIVE.md</code> and <code>LEARNINGS.md</code></td>
+<td>Daily recall spread across many opaque layers</td>
+</tr>
+<tr>
+<td><strong>Durable lessons</strong></td>
+<td>Promoted only with evidence, scope, rejection condition, and rollback clue</td>
+<td>Generic advice that silently changes unrelated future behavior</td>
+</tr>
+<tr>
+<td><strong>Weak signal handling</strong></td>
+<td>Unresolved or inferred signal stays short-lived in <code>inbox/</code></td>
+<td>Letting every observation become long-term memory</td>
+</tr>
+<tr>
+<td><strong>Automation</strong></td>
+<td>One recurring maintenance pass for memory, repo audit, drift check, and next action</td>
+<td>A growing set of overlapping scheduled agents</td>
+</tr>
+<tr>
+<td><strong>Tooling</strong></td>
+<td>Dependency-free scripts for install, doctor, report, replay, and forget</td>
+<td>Mandatory servers, databases, dashboards, or cloud services</td>
+</tr>
+<tr>
+<td><strong>Plugin path</strong></td>
+<td>Ships a Codex plugin package and repo-local marketplace file</td>
+<td>Forcing users to copy skill folders before trying the system</td>
+</tr>
+</table>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
 
 ## Quick Start
 
-Ask Codex to install the project:
+Install the plugin, verify the repository, and run one local maintenance report.
 
-```text
-Install the skills from https://github.com/JY0xLU/codex-native-dream-loop and wire them into my Codex setup.
-```
+### 0. Prerequisites
 
-Or run a dry install plan:
+- Codex CLI with plugin support
+- Python 3.10+
+- A local checkout of this repository
 
-```bash
-python scripts/install.py --codex-home ~/.codex
-```
+### 1. Install as a Codex plugin
 
-Apply it after review:
+From the repository root:
 
 ```bash
-python scripts/install.py --codex-home ~/.codex --apply
+codex plugin marketplace add .
+codex plugin add codex-native-dream-loop@codex-native-dream-loop
+codex plugin list
 ```
 
-Check the repo before publishing or installing:
+You should see `codex-native-dream-loop` listed as installed and enabled. Start
+a new Codex thread after installation so the plugin skills are loaded cleanly.
+
+### 2. Verify the repo
 
 ```bash
 python scripts/doctor.py
 ```
 
-Generate a maintenance report:
+Expected result:
 
-```bash
-python scripts/nightly_report.py --memory-root templates/global/.codex/memory
+```text
+Dream Loop doctor: OK
+Severity: must checks passed
 ```
 
-Run fixture replay:
+### 3. Generate a report
+
+```bash
+python scripts/nightly_report.py --memory-root examples/minimal-global/.codex/memory
+```
+
+### 4. Replay fixtures
 
 ```bash
 python scripts/nightly_report.py replay --fixtures-root examples/minimal-global/.codex/memory/fixtures
 ```
 
-Remove a recalled entry while preserving a tombstone audit:
+Expected result:
 
-```bash
-python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memory --reason "user requested removal"
+```text
+Replay fixtures: 5/5
 ```
 
-## Contents
+<div align="right">
 
-- [Why It Exists](#why-it-exists)
-- [Public Model](#public-model)
-- [How The Loop Works](#how-the-loop-works)
-- [Validation Gate](#validation-gate)
-- [Core Skills](#core-skills)
-- [Automation](#automation)
-- [Internal Mechanics](#internal-mechanics)
-- [What This Repo Includes](#what-this-repo-includes)
-- [Manual Install](#manual-install)
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
 
-## Why It Exists
+</div>
 
-The biggest failure after an agent has worked with you for a while is usually not raw model capability. It is path drift.
+## Plugin Installation
 
-- useful routes are rediscovered from scratch
-- old lessons stay trapped inside long conversations
-- urgent temporary rules linger longer than they should
-- promising plugins or skills get found too late
-- memory systems add layers faster than they add clarity
+The repository contains a marketplace-ready plugin package:
 
-This repo exists to make the next run cheaper than the last one.
+- `.agents/plugins/marketplace.json` - repo-local marketplace entry
+- `plugins/codex-native-dream-loop/.codex-plugin/plugin.json` - installable plugin manifest
+- `plugins/codex-native-dream-loop/skills/` - bundled Dream Loop skills
+- `plugins/codex-native-dream-loop/assets/` - plugin logo and composer icon
 
-It does that by keeping only two public memory surfaces:
+Clone and install:
 
-- `ACTIVE.md`
-  - what should change behavior right now
-- `LEARNINGS.md`
-  - route memory for paths that already proved they win
+```bash
+git clone https://github.com/JY0xLU/codex-native-dream-loop.git
+cd codex-native-dream-loop
+codex plugin marketplace add .
+codex plugin add codex-native-dream-loop@codex-native-dream-loop
+```
 
-Everything else stays in the background.
+Confirm:
 
-## Public Model
+```bash
+codex plugin list
+```
 
-This repo deliberately exposes only two public layers.
+Update after pulling new changes:
 
-### `ACTIVE.md`
+```bash
+git pull
+codex plugin remove codex-native-dream-loop
+codex plugin add codex-native-dream-loop@codex-native-dream-loop
+```
 
-`ACTIVE.md` is the hot layer.
+The root `.codex-plugin/plugin.json` is kept as the source manifest used by
+repository validation. The packaged copy under `plugins/codex-native-dream-loop/`
+is the path exposed through the marketplace file.
 
-Use it for:
+<div align="right">
 
-- temporary but important rules
-- current hot routes
-- phase-specific behavior that should influence the next task immediately
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
 
-If an item stops affecting near-term decisions, it should not stay here.
+</div>
 
-### `LEARNINGS.md`
+## Manual File-Copy Installation
 
-`LEARNINGS.md` is the path memory layer.
+Use manual installation when plugin support is unavailable or when you want to
+inspect every copied file first.
 
-It uses progressive disclosure: start from the index, choose the relevant section, and only then read the specific route entries that match the task.
+Dry run:
 
-Each learning is a route entry, not just a generic life lesson. A good entry answers:
+```bash
+python scripts/install.py --codex-home ~/.codex
+```
 
-- what kind of task this route fits
-- which path should be tried first
-- why that path wins
-- when it was last validated
-- what evidence supports it
-- what fallback or avoid condition matters
+Windows PowerShell:
 
-This makes the system feel less like “memory storage” and more like “route reuse.”
+```powershell
+python scripts/install.py --codex-home "$env:USERPROFILE\.codex"
+```
 
-## How The Loop Works
+Apply the copy plan:
 
-The operating cycle is:
+```bash
+python scripts/install.py --codex-home ~/.codex --apply
+```
 
-`recall -> choose -> search if needed -> execute -> land or quarantine -> consolidate`
+Manual installation copies:
 
-In practice:
+- `skills/capture-memory/`
+- `skills/capability-evolution/`
+- `skills/dream-consolidate/`
+- `templates/global/`
+- the global `AGENTS.md` starter snippet
 
-1. Read the smallest relevant slice from `ACTIVE.md` and `LEARNINGS.md`.
-2. If a known route already fits, reuse it first.
-3. If confidence is not high enough, let `capability-evolution` search in order:
-   enabled official plugins -> installable official plugins -> local skills -> trusted GitHub projects.
-4. Make discovery observable: record searched layers, skipped or blocked layers, selected and rejected candidates, and whether GitHub or external search was reached.
-5. Execute with one chosen route, not multiple competing routes.
-6. Use `capture-memory` to land explicit strong signal directly into `ACTIVE.md` or `LEARNINGS.md`, and only quarantine unresolved inferred signal in `inbox/`.
-7. Use `dream-consolidate` off-hours to keep `ACTIVE.md` hot, strengthen `LEARNINGS.md`, drain unresolved inbox items, and archive stale paths.
+<div align="right">
 
-The public model stays small even though the internal machinery is still auditable.
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
 
-## Validation Gate
+</div>
 
-Dream Loop validates durable memory changes without importing a heavy optimization framework.
+## Architecture At A Glance
 
-Before a route, preference, or procedure becomes durable memory, the maintenance pass should ask:
+```text
+Codex task thread
+  recall -> choose route -> execute -> capture signal
+        |
+        v
+Public route memory
+  ACTIVE.md + LEARNINGS.md
+        |
+        v
+Governance artifacts
+  inbox / staged / rejected / archive / audit
+        |
+        v
+Maintenance tools
+  doctor / report / replay / forget / install
+```
 
-- what real task, correction, repo audit, or repeated failure supports it
-- whether the candidate would have changed the previous outcome for the better
-- whether a smaller hot `ACTIVE.md` entry is safer than a durable `LEARNINGS.md` route
-- what evidence would reject it, retire it, or send it back to quarantine
-- how to roll it back if it later proves wrong
+Even when governance artifacts grow, the public model stays small. Ordinary
+tasks only need the relevant slices of `ACTIVE.md` and `LEARNINGS.md`; maintenance
+commands inspect the supporting directories.
 
-For judgment-heavy changes, `dream-consolidate` should stage a proposal first: accepted edits, rejected candidates, evidence, reviewer or subagent notes, and the exact target layer. Staging is an audit artifact, not a third public memory layer. The day-to-day model remains `ACTIVE.md` and `LEARNINGS.md`.
+<div align="right">
 
-This keeps Dream Loop closer to a route-memory operating system than a research optimizer: lightweight enough to read, strict enough to avoid self-reinforcing bad lessons.
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
 
-## Quality Without Bloat
+</div>
 
-Dream Loop improves by making route choices sharper, not by adding more public layers. Reuse known routes first, require observable discovery only when confidence is low, keep validation evidence compact, and reject candidates that need a large framework to justify a small memory change.
+## Memory Layout
 
-Implementation rounds should keep one clear objective, split independent work where it reduces risk, and land only after the gate has evidence.
+```text
+.codex/memory/
+|-- ACTIVE.md                 # current hot behavior and routes
+|-- LEARNINGS.md              # durable reusable route memory
+|-- AUDIT_LOG.md              # promotion, rejection, archive, rollback trace
+|-- inbox/                    # unresolved inferred signal
+|-- staged/                   # proposals waiting for judgment
+|-- rejected/                 # rejected candidates and reasons
+|-- fixtures/                 # lightweight replay expectations
+|-- reports/                  # maintenance reports
+`-- ARCHIVE/                  # retired or superseded material
+```
+
+Only `ACTIVE.md` and `LEARNINGS.md` are the daily recall surface. Everything
+else is there for review, traceability, and maintenance.
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
 
 ## Core Skills
 
-This repo currently ships three main skills:
+<table>
+<tr>
+<th width="28%">Skill</th>
+<th width="36%">Responsibility</th>
+<th width="36%">Use When</th>
+</tr>
+<tr>
+<td><code>capture-memory</code></td>
+<td>Land explicit strong signal or quarantine unresolved inferred signal.</td>
+<td>A user correction, repeated failure, proven route, or durable preference appears.</td>
+</tr>
+<tr>
+<td><code>capability-evolution</code></td>
+<td>Discover and validate better capabilities in a controlled order.</td>
+<td>Local routes are insufficient and plugins, skills, or trusted projects may improve the task.</td>
+</tr>
+<tr>
+<td><code>dream-consolidate</code></td>
+<td>Review hot memory, staged proposals, archives, reports, drift, and next actions.</td>
+<td>A scheduled or manual Dream Loop maintenance pass is needed.</td>
+</tr>
+</table>
 
-- `capture-memory`
-  - direct landing for explicit strong signal, plus quarantine for unresolved inferred signal
-- `capability-evolution`
-  - route discovery, validation, capability selection, and observable search evidence
-- `dream-consolidate`
-  - off-hours cleanup, hot-layer refresh, route promotion, and audit reporting
+<div align="right">
 
-Together, they support a single idea:
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
 
-**reuse the best known route first, and only search wider when needed.**
+</div>
 
-## Automation
+## Promotion Gate
 
-This repo assumes a single recurring automation, not a growing stack of separate scheduled agents.
+A durable learning should answer five questions before it lands in
+`LEARNINGS.md`:
 
-That automation should do six things in one pass:
+| Gate | Question |
+| --- | --- |
+| Source evidence | Where did the signal come from? |
+| Outcome impact | What became faster, safer, or more reliable? |
+| Scope | Which workspace, repo, tool, or task class does it apply to? |
+| Rejection condition | When should Codex stop using this route? |
+| Rollback clue | What should future maintenance remove or replace if it fails? |
 
-- maintain Dream Loop memory under the dual-layer public model
-- audit the current repo and PR round
-- check whether installed custom skills still match the automation prompt
-- report real reviewer/subagent evidence or explain a low-risk no-review fast path
-- check whether the automation prompt itself has drifted behind the repo
-- recommend the next smallest useful round of improvement
+Example durable entry shape:
 
-It should be strong enough to stay aligned with the repo as the system evolves, but bounded enough that it only audits and recommends at the repo layer instead of silently editing tracked files.
-
-## Internal Mechanics
-
-The system still keeps some internal machinery, but it should not become the main user-facing mental model.
-
-Internal support mechanisms include:
-
-- `inbox/`
-  - short-lived quarantine buffer only for unresolved inferred signal
-- `AUDIT_LOG.md`
-  - minimal trail for promotion, rejection, archive, and rollback decisions
-- `ARCHIVE/`
-  - retired or superseded material kept for traceability
-
-These exist to support rollback and review. They are not meant to become extra public layers that people have to reason about every day.
-
-## What This Repo Includes
-
-- `templates/`
-  - a global `AGENTS.md` starter snippet
-  - a minimal memory skeleton centered on `ACTIVE.md` and `LEARNINGS.md`
-- `.codex-plugin/`
-  - a Codex plugin manifest for direct plugin registration
-- `skills/`
-  - the three skills that run the loop
-- `automations/`
-  - the single recurring automation prompt for memory maintenance, repo round audit, drift check, and next-round recommendations
-- `references/`
-  - concise design notes for route memory, promotion, and automation behavior
-- `scripts/`
-  - dependency-free local checks for repo structure and install readiness
-- `examples/`
-  - a minimal global example using the dual-layer public model
-
-## Manual Install
-
-1. Copy `skills/capture-memory/`, `skills/capability-evolution/`, and `skills/dream-consolidate/` into `$CODEX_HOME/skills/` or `~/.codex/skills/`.
-2. Copy `templates/global/` into your Codex home as the starter structure.
-3. Merge the `AGENTS.md` snippet into your global or project entrypoint.
-4. During work, rely on `ACTIVE.md` first and `LEARNINGS.md` second.
-5. Use `capability-evolution` when you need to search for a better route.
-6. Use `capture-memory` to land explicit strong signal immediately and quarantine only unresolved inferred signal.
-7. Run the single recurring Dream Loop automation off-hours to refresh the hot layer, drain unresolved inbox items, audit the current repo/PR state, check custom-skill alignment and prompt drift, report real reviewer evidence, and recommend the next round.
-
-If your Codex build supports local plugin registration, this repo also includes `.codex-plugin/plugin.json`. Keep the manual path as the fallback while plugin packaging continues to evolve.
-
-For a static HTML report:
-
-```bash
-python scripts/nightly_report.py --memory-root templates/global/.codex/memory --format html --output report.html
+```md
+- For README and GitHub-facing presentation work, keep the public page visual,
+  plugin-installable, and concrete about verification.
+  scope: public repo presentation
+  evidence: repeated README polish requests and plugin install validation
+  reject_when: repository is no longer distributed through Codex plugins
 ```
 
-## What “Good” Looks Like
+Weak, inferred, or competing signal belongs in `inbox/` until it has enough
+evidence to promote or reject.
 
-This repo is working well when:
+<div align="right">
 
-- the next task starts from an existing winning route instead of from zero
-- `ACTIVE.md` stays short and obviously current
-- `LEARNINGS.md` reads like a library of reusable routes, not a graveyard of vague rules
-- explicit corrections and durable preferences land quickly instead of sitting in `inbox/`
-- plugins and skills are discovered proactively when needed
-- rejected or stale paths are archived instead of silently disappearing
-- the system gets faster without becoming more confusing
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
+
+## Maintenance Commands
+
+| Command | Purpose |
+| --- | --- |
+| `python scripts/doctor.py` | Validate repository health, docs, plugin metadata, fixtures, and UTF-8 safety checks. |
+| `python scripts/nightly_report.py --memory-root <path>` | Generate a maintenance report for a Dream Loop memory root. |
+| `python scripts/nightly_report.py replay --fixtures-root <path>` | Replay fixture expectations and catch reporting drift. |
+| `python scripts/memoryctl.py forget --memory-root <path> --target <id>` | Move stale or rejected memory out of the hot path. |
+| `python scripts/install.py --codex-home <path> --apply` | Copy skills and templates into a Codex home when plugin install is unavailable. |
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
+
+## Project Structure
+
+```text
+.
+|-- .agents/plugins/marketplace.json
+|-- .codex-plugin/plugin.json
+|-- assets/
+|   |-- 32x32.png
+|   `-- hero-logo.png
+|-- plugins/codex-native-dream-loop/
+|   |-- .codex-plugin/plugin.json
+|   |-- assets/
+|   `-- skills/
+|-- skills/
+|   |-- capture-memory/
+|   |-- capability-evolution/
+|   `-- dream-consolidate/
+|-- scripts/
+|   |-- doctor.py
+|   |-- install.py
+|   |-- memoryctl.py
+|   `-- nightly_report.py
+|-- references/
+|-- templates/global/
+|-- tests/
+|-- README.md
+`-- README.zh-CN.md
+```
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
+
+## Roadmap
+
+- **Install path** - keep the repo-local marketplace and packaged plugin smoke-tested.
+- **Report quality** - make maintenance output easier to scan without expanding the public memory model.
+- **Replay coverage** - add fixtures for promotion, rejection, archive, stale-active, and rollback cases.
+- **Operator ergonomics** - keep Windows, PowerShell, and Codex Desktop workflows first-class.
+- **Governance clarity** - improve examples for when a memory belongs in `ACTIVE.md`, `LEARNINGS.md`, or `inbox/`.
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-Back_to_top-gray?style=flat-square)](#readme-top)
+
+</div>
+
+## License
+
+MIT. See [LICENSE](LICENSE).
