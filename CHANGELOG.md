@@ -2,6 +2,27 @@
 
 All notable changes to `Codex Native Dream Loop` will be documented in this file.
 
+## 2026-06-18
+
+### Added
+- Added a repo-local Codex plugin marketplace at `.agents/plugins/marketplace.json`.
+- Added a marketplace-ready plugin package under `plugins/codex-native-dream-loop/` with the plugin manifest, skills, and logo assets.
+- Added direct plugin installation instructions using `codex plugin marketplace add .` and `codex plugin add codex-native-dream-loop@codex-native-dream-loop`.
+- Added detailed English and Chinese README sections for requirements, quick start, use cases, not-for scope, public model, example flow, automation, internal mechanics, docs map, contributing, and completion status.
+- Added useful README status badges for GitHub stars, forks, Python version, zero dependencies, local-only privacy, license, and last commit.
+
+### Changed
+- Reworked the README presentation to keep the first screen compact while restoring the detailed route-memory explanation from the original long-form docs.
+- Updated the README logo treatment and top navigation so plugin installation is visible before the deeper governance model.
+- Clarified that Dream Loop's core loop is complete, with future work framed as refinement rather than unfinished core functionality.
+- Synchronized `README.md` and `README.zh-CN.md` so the Chinese documentation is not stale relative to the English version.
+
+### Fixed
+- Fixed the missing direct plugin installation path in the public README.
+- Fixed overly sparse README revisions that removed important details about `ACTIVE.md`, `LEARNINGS.md`, validation, automation, and audit flow.
+- Removed external reference-project names and copy-looking wording from public README content.
+- Replaced vague decorative badges with practical project status badges.
+
 ## 2026-05-08
 
 ### Added
