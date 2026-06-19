@@ -1,21 +1,21 @@
 <p align="center">
-  <img src="assets/hero-logo.png" width="156" alt="Codex Native Dream Loop logo">
+  <img src="assets/hero-logo.png" width="156" alt="CoDream Loop logo">
 </p>
 
-<h1 align="center">Codex Native Dream Loop</h1>
+<h1 align="center">CoDream Loop</h1>
 
 <p align="center">
   给 Codex 用的路线记忆：留下已经赢过的路径，拒绝薄弱经验，保持召回很小。
 </p>
 
 <p align="center">
-  <a href="https://github.com/JY0xLU/codex-native-dream-loop/stargazers"><img src="https://img.shields.io/github/stars/JY0xLU/codex-native-dream-loop?style=flat&logo=github&label=Stars" alt="GitHub stars"></a>
-  <a href="https://github.com/JY0xLU/codex-native-dream-loop/forks"><img src="https://img.shields.io/github/forks/JY0xLU/codex-native-dream-loop?style=flat&logo=github&label=Forks" alt="GitHub forks"></a>
+  <a href="https://github.com/JY0xLU/codream-loop/stargazers"><img src="https://img.shields.io/github/stars/JY0xLU/codream-loop?style=flat&logo=github&label=Stars" alt="GitHub stars"></a>
+  <a href="https://github.com/JY0xLU/codream-loop/forks"><img src="https://img.shields.io/github/forks/JY0xLU/codream-loop?style=flat&logo=github&label=Forks" alt="GitHub forks"></a>
   <img src="https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/deps-zero-0f766e" alt="Zero runtime dependencies">
   <img src="https://img.shields.io/badge/privacy-local--only-14b8a6" alt="Local-only privacy">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2563eb" alt="MIT license"></a>
-  <img src="https://img.shields.io/github/last-commit/JY0xLU/codex-native-dream-loop?label=last%20commit" alt="Last commit">
+  <img src="https://img.shields.io/github/last-commit/JY0xLU/codream-loop?label=last%20commit" alt="Last commit">
 </p>
 
 <p align="center">
@@ -28,11 +28,11 @@
 </p>
 
 ```bash
-git clone https://github.com/JY0xLU/codex-native-dream-loop.git
-cd codex-native-dream-loop
+git clone https://github.com/JY0xLU/codream-loop.git
+cd codream-loop
 
 codex plugin marketplace add .
-codex plugin add codex-native-dream-loop@codex-native-dream-loop
+codex plugin add codream-loop@codream-loop
 ```
 
 Codex 经常会忘记哪条路线已经跑通。Dream Loop 给它一套很小的运行记忆：`ACTIVE.md` 放当前热规则，`LEARNINGS.md` 放可复用路线，任何长期记忆都先过验证门。
@@ -57,11 +57,11 @@ Codex 经常会忘记哪条路线已经跑通。Dream Loop 给它一套很小的
 ## 快速开始
 
 ```bash
-git clone https://github.com/JY0xLU/codex-native-dream-loop.git
-cd codex-native-dream-loop
+git clone https://github.com/JY0xLU/codream-loop.git
+cd codream-loop
 
 codex plugin marketplace add .
-codex plugin add codex-native-dream-loop@codex-native-dream-loop
+codex plugin add codream-loop@codream-loop
 python scripts/doctor.py
 python scripts/nightly_report.py --memory-root examples/minimal-global/.codex/memory
 ```
@@ -75,21 +75,21 @@ python scripts/nightly_report.py --memory-root examples/minimal-global/.codex/me
 在本地仓库运行：
 
 ```bash
-git clone https://github.com/JY0xLU/codex-native-dream-loop.git
-cd codex-native-dream-loop
+git clone https://github.com/JY0xLU/codream-loop.git
+cd codream-loop
 
 codex plugin marketplace add .
-codex plugin add codex-native-dream-loop@codex-native-dream-loop
+codex plugin add codream-loop@codream-loop
 codex plugin list
 ```
 
 预期状态：
 
 ```text
-codex-native-dream-loop@codex-native-dream-loop  installed, enabled
+codream-loop@codream-loop  installed, enabled
 ```
 
-仓库已经包含可被 marketplace 识别的 plugin 包：`plugins/codex-native-dream-loop/`，入口由 `.agents/plugins/marketplace.json` 提供。安装后建议新开一个 Codex 线程，让 skills 干净加载。
+仓库已经包含可被 marketplace 识别的 plugin 包：`plugins/codream-loop/`，入口由 `.agents/plugins/marketplace.json` 提供。安装后建议新开一个 Codex 线程，让 skills 干净加载。
 
 ### 手动文件复制
 
@@ -318,7 +318,7 @@ python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memor
 .
 |-- .agents/plugins/marketplace.json
 |-- .codex-plugin/plugin.json
-|-- plugins/codex-native-dream-loop/
+|-- plugins/codream-loop/
 |   |-- .codex-plugin/plugin.json
 |   |-- assets/
 |   `-- skills/
@@ -338,14 +338,14 @@ python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memor
 `-- README.zh-CN.md
 ```
 
-根目录的 `.codex-plugin/plugin.json` 是仓库校验用的源 manifest；`plugins/codex-native-dream-loop/` 下的副本是 marketplace 暴露给 Codex 的可安装包。
+根目录的 `.codex-plugin/plugin.json` 是仓库校验用的源 manifest；`plugins/codream-loop/` 下的副本是 marketplace 暴露给 Codex 的可安装包。
 
 ## 文档地图
 
 - [CHANGELOG.md](CHANGELOG.md) - 版本记录和重要变更
 - [references/](references/) - scope、验证、自动化、能力演进等设计说明
 - [templates/global/](templates/global/) - 起步记忆结构和 AGENTS 片段
-- [plugins/codex-native-dream-loop/](plugins/codex-native-dream-loop/) - 可被 marketplace 安装的 plugin 包
+- [plugins/codream-loop/](plugins/codream-loop/) - 可被 marketplace 安装的 plugin 包
 
 ## 贡献
 

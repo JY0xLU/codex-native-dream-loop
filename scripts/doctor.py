@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dependency-free structural checks for Codex Native Dream Loop."""
+"""Dependency-free structural checks for CoDream Loop."""
 
 from __future__ import annotations
 

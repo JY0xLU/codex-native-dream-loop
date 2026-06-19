@@ -1,14 +1,14 @@
 {
-  "name": "codex-native-dream-loop",
+  "name": "codream-loop",
   "interface": {
-    "displayName": "Codex Native Dream Loop"
+    "displayName": "CoDream Loop"
   },
   "plugins": [
     {
-      "name": "codex-native-dream-loop",
+      "name": "codream-loop",
       "source": {
         "source": "local",
-        "path": "./plugins/codex-native-dream-loop"
+        "path": "./plugins/codream-loop"
       },
       "policy": {
         "installation": "AVAILABLE",

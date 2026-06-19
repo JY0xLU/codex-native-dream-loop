@@ -38,7 +38,7 @@ def install(codex_home: Path, *, apply: bool) -> list[str]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Install Codex Native Dream Loop into a Codex home directory.")
+    parser = argparse.ArgumentParser(description="Install CoDream Loop into a Codex home directory.")
     parser.add_argument("--codex-home", default=str(DEFAULT_CODEX_HOME), help="Target Codex home directory.")
     parser.add_argument("--apply", action="store_true", help="Actually copy files. Omit for dry-run.")
     args = parser.parse_args()

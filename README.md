@@ -1,21 +1,21 @@
 <p align="center">
-  <img src="assets/hero-logo.png" width="156" alt="Codex Native Dream Loop logo">
+  <img src="assets/hero-logo.png" width="156" alt="CoDream Loop logo">
 </p>
 
-<h1 align="center">Codex Native Dream Loop</h1>
+<h1 align="center">CoDream Loop</h1>
 
 <p align="center">
-  Route memory for Codex: keep the winning path visible, reject weak lessons, and keep recall small.
+  Route memory for Codex: keep winning paths visible, reject weak lessons, and keep recall small.
 </p>
 
 <p align="center">
-  <a href="https://github.com/JY0xLU/codex-native-dream-loop/stargazers"><img src="https://img.shields.io/github/stars/JY0xLU/codex-native-dream-loop?style=flat&logo=github&label=Stars" alt="GitHub stars"></a>
-  <a href="https://github.com/JY0xLU/codex-native-dream-loop/forks"><img src="https://img.shields.io/github/forks/JY0xLU/codex-native-dream-loop?style=flat&logo=github&label=Forks" alt="GitHub forks"></a>
+  <a href="https://github.com/JY0xLU/codream-loop/stargazers"><img src="https://img.shields.io/github/stars/JY0xLU/codream-loop?style=flat&logo=github&label=Stars" alt="GitHub stars"></a>
+  <a href="https://github.com/JY0xLU/codream-loop/forks"><img src="https://img.shields.io/github/forks/JY0xLU/codream-loop?style=flat&logo=github&label=Forks" alt="GitHub forks"></a>
   <img src="https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/deps-zero-0f766e" alt="Zero runtime dependencies">
   <img src="https://img.shields.io/badge/privacy-local--only-14b8a6" alt="Local-only privacy">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2563eb" alt="MIT license"></a>
-  <img src="https://img.shields.io/github/last-commit/JY0xLU/codex-native-dream-loop?label=last%20commit" alt="Last commit">
+  <img src="https://img.shields.io/github/last-commit/JY0xLU/codream-loop?label=last%20commit" alt="Last commit">
 </p>
 
 <p align="center">
@@ -28,11 +28,11 @@
 </p>
 
 ```bash
-git clone https://github.com/JY0xLU/codex-native-dream-loop.git
-cd codex-native-dream-loop
+git clone https://github.com/JY0xLU/codream-loop.git
+cd codream-loop
 
 codex plugin marketplace add .
-codex plugin add codex-native-dream-loop@codex-native-dream-loop
+codex plugin add codream-loop@codream-loop
 ```
 
 Codex often forgets which route already worked. Dream Loop gives it a small
@@ -62,11 +62,11 @@ making memory harder to audit.
 ## Quick Start
 
 ```bash
-git clone https://github.com/JY0xLU/codex-native-dream-loop.git
-cd codex-native-dream-loop
+git clone https://github.com/JY0xLU/codream-loop.git
+cd codream-loop
 
 codex plugin marketplace add .
-codex plugin add codex-native-dream-loop@codex-native-dream-loop
+codex plugin add codream-loop@codream-loop
 python scripts/doctor.py
 python scripts/nightly_report.py --memory-root examples/minimal-global/.codex/memory
 ```
@@ -82,22 +82,22 @@ relevant slice of `ACTIVE.md` and `LEARNINGS.md` before choosing a route.
 From a local checkout:
 
 ```bash
-git clone https://github.com/JY0xLU/codex-native-dream-loop.git
-cd codex-native-dream-loop
+git clone https://github.com/JY0xLU/codream-loop.git
+cd codream-loop
 
 codex plugin marketplace add .
-codex plugin add codex-native-dream-loop@codex-native-dream-loop
+codex plugin add codream-loop@codream-loop
 codex plugin list
 ```
 
 Expected status:
 
 ```text
-codex-native-dream-loop@codex-native-dream-loop  installed, enabled
+codream-loop@codream-loop  installed, enabled
 ```
 
 The repository ships a marketplace-ready plugin package at
-`plugins/codex-native-dream-loop/`, wired by `.agents/plugins/marketplace.json`.
+`plugins/codream-loop/`, wired by `.agents/plugins/marketplace.json`.
 Start a new Codex thread after installation so the skills load cleanly.
 
 ### Manual File Copy
@@ -348,7 +348,7 @@ python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memor
 .
 |-- .agents/plugins/marketplace.json
 |-- .codex-plugin/plugin.json
-|-- plugins/codex-native-dream-loop/
+|-- plugins/codream-loop/
 |   |-- .codex-plugin/plugin.json
 |   |-- assets/
 |   `-- skills/
@@ -369,7 +369,7 @@ python scripts/memoryctl.py forget LRN-YYYYMMDD-001 --memory-root ~/.codex/memor
 ```
 
 The root `.codex-plugin/plugin.json` is the source manifest used by repository
-validation. The packaged copy under `plugins/codex-native-dream-loop/` is the
+validation. The packaged copy under `plugins/codream-loop/` is the
 installable plugin exposed through the marketplace file.
 
 ## Docs Map
@@ -377,7 +377,7 @@ installable plugin exposed through the marketplace file.
 - [CHANGELOG.md](CHANGELOG.md) - release notes and notable changes
 - [references/](references/) - design notes for scope, validation, automation, and capability evolution
 - [templates/global/](templates/global/) - starter memory and AGENTS snippet
-- [plugins/codex-native-dream-loop/](plugins/codex-native-dream-loop/) - marketplace-ready plugin package
+- [plugins/codream-loop/](plugins/codream-loop/) - marketplace-ready plugin package
 ## Contributing
 
 Keep changes aligned with the small public model:

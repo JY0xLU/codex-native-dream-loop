@@ -1,13 +1,13 @@
 # Changelog
 
-All notable changes to `Codex Native Dream Loop` will be documented in this file.
+All notable changes to `CoDream Loop` will be documented in this file.
 
 ## 2026-06-18
 
 ### Added
 - Added a repo-local Codex plugin marketplace at `.agents/plugins/marketplace.json`.
-- Added a marketplace-ready plugin package under `plugins/codex-native-dream-loop/` with the plugin manifest, skills, and logo assets.
-- Added direct plugin installation instructions using `codex plugin marketplace add .` and `codex plugin add codex-native-dream-loop@codex-native-dream-loop`.
+- Added a marketplace-ready plugin package under `plugins/codream-loop/` with the plugin manifest, skills, and logo assets.
+- Added direct plugin installation instructions using `codex plugin marketplace add .` and `codex plugin add codream-loop@codream-loop`.
 - Added detailed English and Chinese README sections for requirements, quick start, use cases, not-for scope, public model, example flow, automation, internal mechanics, docs map, contributing, and completion status.
 - Added useful README status badges for GitHub stars, forks, Python version, zero dependencies, local-only privacy, license, and last commit.
 
